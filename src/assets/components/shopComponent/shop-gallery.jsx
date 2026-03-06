@@ -6,8 +6,7 @@ import { useCart } from "../../../context/cartContext";
 
 
 const ShopGallery = ({ sneaker }) => {
-  const { cartItems } = useCart();
-  console.log(cartItems);
+
 
   const [isOpen, setIsOpen] = useState(false);
   const [isClosed, setIsClosed] = useState(false);

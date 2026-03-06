@@ -8,7 +8,7 @@ import Footer from '../footerComponent/footer'
 import { useCart } from "../../../context/cartContext";
 
 const SingleProductPage = () => {
-  const { addToCart } = useCart();
+  const { addToCart, xMen } = useCart();
   const { id } = useParams(); // grab the sneaker id from the route
   const sneaker = Sneakers.find((item) => item.id == id);
   // find the sneaker
@@ -35,6 +35,7 @@ const SingleProductPage = () => {
   return (
     <div className="">
       <Header />
+      {xMen}
       <div>
         <div className="max-w-2xl mx-auto bg-[#f5d19f] p-6 shadow-lg my-10 rounded text-gray-700">
           <div className="flex gap-x-5">
