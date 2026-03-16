@@ -65,8 +65,7 @@ const signIn = () => {
             <p className='text-[14px] text-center mt-5 text-black'>Join thosands, finding their perfect sneakers...</p>
           </div>
         </div>
-        <div className=' bg-white rounded-2xl w-[35%] mr-25 h-3/4 m-10 p-10 '>
-
+        <div className=' bg-white rounded-2xl w-[35%] mr-25 min-h-3/4 m-10 p-10 '>
           <div className='mb-3 space-y-2 '>
             <h3 className=''>
               {isLogin ? "Get back in" : "Join the sneaker community"}
