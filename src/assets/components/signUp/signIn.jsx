@@ -49,11 +49,10 @@ const signIn = () => {
   };
 
   return (
-    <div className="absolute inset-0  bg-no-repeat overflow-hidden bg-center bg-cover"
+    <div className="absolute inset-0 bg-no-repeat overflow-hidden bg-center bg-cover w-full "
       style={{ backgroundImage: `url(${SignUpBgIcon})` }}>
-
       <div className='flex justify-between w-full '>
-        <div className='m-7 text-white w-[50%]'>
+        <div className='m-7 text-white w-6/12'>
           <div>
             <button className='shop-btn ' >
               Blog
@@ -65,7 +64,7 @@ const signIn = () => {
             <p className='text-[14px] text-center mt-5 text-black'>Join thosands, finding their perfect sneakers...</p>
           </div>
         </div>
-        <div className=' bg-white rounded-2xl w-[35%] mr-25 min-h-3/4 m-10 p-10 '>
+        <div className=' bg-white rounded-2xl min-w-4/12 mr-25 min-h-3/4 m-15 p-10 '>
           <div className='mb-3 space-y-2 '>
             <h3 className=''>
               {isLogin ? "Get back in" : "Join the sneaker community"}
