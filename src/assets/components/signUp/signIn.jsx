@@ -49,7 +49,7 @@ const signIn = () => {
   };
 
   return (
-    <div className="absolute inset-0 bg-no-repeat overflow-hidden bg-center bg-cover w-full place-content-center  "
+    <div className="absolute inset-0 bg-no-repeat overflow-hidden bg-center bg-cover w-full place-content-center"
       style={{ backgroundImage: `url(${SignUpBgIcon})` }}>
       <div className='flex justify-between w-full '>
         <div className='m-7 text-white w-6/12'>

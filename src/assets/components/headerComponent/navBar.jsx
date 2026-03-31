@@ -5,9 +5,16 @@ import { faCircleUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-ico
 import { Link,  NavLink } from 'react-router-dom';
 import CartBar from '../cartComponent/addToCart'
 import { useCart } from '../../../context/cartContext';
+import { useState } from 'react';
 
 const NavBar = () => {
   const { cartItems } = useCart();
+
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
 
   return (
     <div className='flex justify-between px-20 bg-black/90 min-h-20 max-h-25 w-full'>
@@ -45,15 +52,23 @@ const NavBar = () => {
         {/* Pass count to CartBar */}
         <CartBar cartCount={cartItems.length} />
 
-        <Link to="/">
-          <button>
+    
+          <button onClick={handleLogin}>
             <FontAwesomeIcon
               icon={faCircleUser}
               className='text-[25px] cursor-pointer hover:text-white transition'
             />
           </button>
-        </Link>
+      
       </div>
+      {
+        loggedIn && (
+         <div className="absolute top-0 right-0 bg-white p-4 rounded shadow-lg h-screen w-3/12">
+           <p>Welcome Back User</p>
+          <p> You're signed in </p>
+         </div>
+        )
+      }
     </div>
   );
 };
