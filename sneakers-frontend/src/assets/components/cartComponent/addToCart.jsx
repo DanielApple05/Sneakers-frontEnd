@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faX } from '@fortawesome/free-solid-svg-icons';
-import { useCart } from '../../../../../context/cartContext';
+import { useCart } from '../../../context/cartContext';
 
 const AddToCart = () => {
 

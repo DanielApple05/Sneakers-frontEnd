@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./navBar";
-import { useCart } from "../../../../../context/cartContext";
+import { useCart } from "../../../context/cartContext";
+
 
 const Header = () => {
   const { cartItems } = useCart();

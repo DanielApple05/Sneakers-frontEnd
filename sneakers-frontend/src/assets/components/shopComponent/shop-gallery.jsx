@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faArrowRotateLeft, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useCart } from "../../../../../context/cartContext";
+import { useCart } from "../../../context/cartContext";
 
 
 const ShopGallery = ({ sneaker }) => {

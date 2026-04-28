@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import Sneakers from "../../sneakerData";
+import Sneakers from "../sneakerData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import Header from '../headerComponent/sneakers-frontend/headerComponent/header';
+import Header from '../headerComponent/header';
 import Footer from '../footerComponent/footer'
 import { useCart } from "../../../context/cartContext";
 
