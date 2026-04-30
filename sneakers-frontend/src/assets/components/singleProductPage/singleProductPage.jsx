@@ -10,7 +10,6 @@ import axios from 'axios';
 const SingleProductPage = () => {
   const { addToCart } = useCart();
   const { id } = useParams();
-
   const [sneaker, setSneaker] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [mainImage, setMainImage] = useState('');

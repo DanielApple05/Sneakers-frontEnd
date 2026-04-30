@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faArrowRotateLeft, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../context/cartContext";
+import axios from 'axios';
 
 
-const ShopGallery = ({ sneaker }) => {
+const ShopGallery = () => {
+const [sneaker, setSneaker] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchSneakers = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get('http://localhost:5000/api/sneakers');
+        setSneaker(res.data);
+      } catch (error) {
+        console.log('Error fetching sneakers:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSneakers();
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
@@ -16,7 +34,7 @@ const ShopGallery = ({ sneaker }) => {
   const folders = ["all", "male", "female"];
   const shoeBrands = ["adidas", "jordans", "nikeAirforce"];
   const filteredShoes = allShoes.filter((shoe) => {
-    const genderMatch =
+ const genderMatch =
       activeFilter === "all" || shoe.gender === activeFilter;
     const brandMatch =
       selectedBrands.length === 0 || selectedBrands.includes(shoe.brand);
@@ -80,8 +98,12 @@ const ShopGallery = ({ sneaker }) => {
           <div className='grid grid-cols-4 gap-6 '>
             {filteredShoes.map((shoe) => (
               <div key={shoe.id} className="flex flex-col h-86 bg-gray-400 rounded-xl shadow-xl relative">
-                <Link to={`/product/${shoe.id}`}>
-                  <img src={shoe.image} className="rounded-t-xl relative w-full h-50" /> </Link>
+                {
+                  loading ? (
+                    <p className="text-center py-20">Loading...</p>
+                  ) : ( <Link to={`/product/${shoe.id}`}>
+                  <img src={shoe.image} className="rounded-t-xl relative w-full h-50" /> </Link>)
+                }
                 <div className="text-center pt-2">
                   <h6 className="font-semibold">{shoe.name}</h6>
                   <p>${shoe.price}</p>
