@@ -57,7 +57,7 @@ const signIn = () => {
           const res = await axios.post(`${API_URL}/auth/signup`, {
           email,
           password,
-          Username: fullName
+          username: fullName
         });
         alert(res.data.message);
         setIsLogin(true);
