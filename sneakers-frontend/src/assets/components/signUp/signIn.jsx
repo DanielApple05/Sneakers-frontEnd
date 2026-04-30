@@ -98,6 +98,7 @@ const signIn = () => {
             <p>
               {isLogin ? "Not a member?" : "Already a member?"}
               <span
+              disabled={loading}
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-red-600 text-[12px] cursor-pointer ml-1"
               >

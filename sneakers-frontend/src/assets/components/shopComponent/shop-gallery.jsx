@@ -46,7 +46,7 @@ const [sneaker, setSneaker] = useState([]);
   };
 
   return (
-    <div className=' py-10 w-full bg-[#FDF6EC] '>
+    <div className=' py-10 w-full bg-[#FDF6EC] min-h-screen'>
       <h2 className="mb-6 text-[30px] pl-20 font-bold relative ">
         Shop
       </h2>
@@ -81,8 +81,8 @@ const [sneaker, setSneaker] = useState([]);
             ))}
           </div>}
         </div>
-
-        <div className="grid w-[80%] border-l pl-10">
+       <hr className="h-76"/>
+        <div className="grid w-[80%] pl-10">
           <div className="flex justify-between ">
             <div className='space-x-4 text-white pb-4'>
               {folders.map((folder) => (

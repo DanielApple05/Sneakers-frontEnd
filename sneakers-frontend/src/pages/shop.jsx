@@ -5,11 +5,11 @@ import Footer from '../assets/components/footerComponent/footer';
 
 const Shop = () => {
   return (
-    <div>
+    <>
       <Header />
         <ShopGallery />
       <Footer />
-    </div>
+     </>
   );
 }
 
