@@ -5,6 +5,7 @@ import { faEnvelope, faUser, faLock, faAnchorLock } from '@fortawesome/free-soli
 import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 import SignUpBgIcon from '../../images/signUpBg.png'
 import { Link, useNavigate } from 'react-router-dom';
+import User from '../../../../../sneakers-backend/models/User';
 
 const signIn = () => {
   const navigate = useNavigate();
@@ -56,7 +57,8 @@ const signIn = () => {
           //SIGNUP
           const res = await axios.post(`${API_URL}/auth/signup`, {
           email,
-          password
+          password,
+          Username: fullName
         });
         alert(res.data.message);
         setIsLogin(true);
