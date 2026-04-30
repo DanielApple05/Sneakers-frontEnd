@@ -3,9 +3,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUser, faLock, faAnchorLock } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
-import SignUpBgIcon from '../../images/signUpBg.png'
+import SignUpBgIcon from '../../images/signUpBg.png';
 import { Link, useNavigate } from 'react-router-dom';
-import User from '../../../../../sneakers-backend/models/User';
 
 const signIn = () => {
   const navigate = useNavigate();
