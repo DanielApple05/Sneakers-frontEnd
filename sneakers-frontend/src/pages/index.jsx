@@ -4,7 +4,6 @@ import '../App.css';
 import jordans_2 from '/images/male-imgfolder/male-jordans2.png';
 import Jordans_f from '/images/female-imgfolder/female-airforce.png';
 import Footer from '../assets/components/footerComponent/footer'
-// import Sneaker from '../assets/components/sneakerData';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -12,12 +11,13 @@ import { useEffect, useState } from 'react';
 const Index = () => {
   const [sneakers, setSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchSneakers = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('http://localhost:5000/api/sneakers');
+        const res = await axios.get(`${API_URL}/sneakers`);
         setSneakers(res.data);
       } catch (error) {
         console.log('Error fetching sneakers', error);
