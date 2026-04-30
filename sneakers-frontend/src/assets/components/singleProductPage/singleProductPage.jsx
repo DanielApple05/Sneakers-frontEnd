@@ -54,7 +54,7 @@ const SingleProductPage = () => {
   return (
     <div className="">
       <Header />
-      <div>
+      <div> 
         <div className="max-w-2xl mx-auto bg-[#f5d19f] p-6 shadow-lg my-10 rounded text-gray-700">
           <div className="flex gap-x-5">
             <div className="w-full">
