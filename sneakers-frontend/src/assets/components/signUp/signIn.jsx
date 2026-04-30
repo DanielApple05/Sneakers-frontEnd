@@ -16,6 +16,7 @@ const signIn = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
 
   const handleSubmit = async (e) => {
@@ -47,23 +48,26 @@ const signIn = () => {
 
     if (Object.keys(newErrors).length === 0) {
       try {
-        if (isLogin){
-           const res = await axios.post( `${API_URL}/auth/login`, { email, password });
-           localStorage.setItem( 'token', res.data.token );
-           alert(res.data.message);
+        setLoading(true);
+        if (isLogin) {
+          const res = await axios.post(`${API_URL}/auth/login`, { email, password });
+          localStorage.setItem('token', res.data.token);
           navigate('/index');
+          setLoading(false);
         } else {
           //SIGNUP
+          setLoading(true);
           const res = await axios.post(`${API_URL}/auth/signup`, {
-          email,
-          password,
-          username: fullName
-        });
-        alert(res.data.message);
-        setIsLogin(true);
+            email,
+            password,
+            username: fullName
+          });
+          alert(res.data.message);
         }
       } catch (error) {
-         alert(error.response?.data?.message || 'Something went wrong');
+        alert(error.response?.data?.message || 'Something went wrong');
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -74,7 +78,9 @@ const signIn = () => {
       <div className='flex justify-between w-full '>
         <div className='m-7 text-white w-6/12'>
           <div>
-            <button className='shop-btn ' >
+            <button 
+            disabled={loading}
+            className='shop-btn ' >
               Blog
             </button>
           </div>
@@ -106,6 +112,7 @@ const signIn = () => {
                 <input
                   type="text"
                   value={fullName}
+                  disabled={loading}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder='Full Name'
                   className='outline-none ml-3 w-full' />
@@ -119,6 +126,7 @@ const signIn = () => {
                 <input
                   type="email"
                   value={email}
+                  disabled={loading}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder='Email Address'
                   className='outline-none ml-3 w-full'
@@ -131,6 +139,7 @@ const signIn = () => {
                 <FontAwesomeIcon icon={faLock} />
                 <input
                   type="password"
+                  disabled={loading}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder='Password' className='outline-none ml-3 w-full' />
@@ -143,6 +152,7 @@ const signIn = () => {
                 <FontAwesomeIcon icon={faAnchorLock} />
                 <input
                   type="password"
+                  disabled={loading}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder='Confirm Password' className='outline-none ml-3 w-full' />
@@ -151,23 +161,31 @@ const signIn = () => {
                 <p className="text-red-500 text-[10px]">{errors.confirmPassword}</p>
               ))}
               <button
+                disabled={loading}
                 type="submit"
                 className='bg-red-600 rounded-lg text-center text-white py-2 w-full cursor-pointer'
               >
-                {isLogin ? "Login" : "Create Account"}
+                {loading ? "Processing..." : isLogin ? "Login" : "Create Account"}
               </button>
             </form>
-            <div className='rounded-lg border border-gray-300 shadow-xl p-2  items-center justify-center flex'>
-              <FontAwesomeIcon icon={faGoogle} className='text-yellow-500 text-xl ' />
-              <h3 className='text-center ml-3 cursor-pointer'>
-                Continue with  Google
-              </h3>
-            </div>
-            <div className='rounded-lg text-center bg-black text-white shadow-xl p-2  items-center justify-center flex'>
-              <FontAwesomeIcon icon={faApple} className='text-xl' />
-              <h3 className='ml-3 cursor-pointer'>
-                Continue with  Apple
-              </h3>
+            <div className='grid gap-2 '>
+              <button
+                disabled={loading}
+                className='rounded-lg border border-gray-300 shadow-xl p-2  items-center justify-center flex'>
+                <FontAwesomeIcon icon={faGoogle} className='text-yellow-500 text-xl ' />
+                <h3 className='text-center ml-3 cursor-pointer'>
+                  Continue with  Google
+                </h3>
+              </button>
+              <button
+                disabled={loading} className='rounded-lg text-center bg-black text-white shadow-xl p-2  items-center justify-center flex'>
+                <FontAwesomeIcon
+                  icon={faApple}
+                  className='text-xl' />
+                <h3 className='ml-3 cursor-pointer'>
+                  Continue with  Apple
+                </h3>
+              </button>
             </div>
           </div>
 
