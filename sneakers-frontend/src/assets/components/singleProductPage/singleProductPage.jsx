@@ -16,18 +16,19 @@ const SingleProductPage = () => {
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchSneaker = async () => {
       setLoading(true);
       try {
         // Fetch single sneaker
-        const res = await axios.get(`http://localhost:5000/api/sneakers/${id}`);
+        const res = await axios.get(`${API_URL}/sneakers/${id}`);
         setSneaker(res.data);
         setMainImage(res.data.image);
 
         // Fetch related products
-        const allRes = await axios.get('http://localhost:5000/api/sneakers');
+        const allRes = await axios.get(`${API_URL}/sneakers`);
         setRelatedProducts(allRes.data.slice(0, 5));
       } catch (error) {
         console.log('Error fetching sneaker:', error);
@@ -37,7 +38,7 @@ const SingleProductPage = () => {
     };
 
     fetchSneaker();
-  }, [id]);
+  }, [_id]);
 
   useEffect(() => {
     if (sneaker) {
@@ -106,8 +107,8 @@ const SingleProductPage = () => {
           <h3 className="font-bold">Related Products</h3>
           <div className="flex gap-x-7 items-center justify-center">
             {relatedProducts.map((sneaks) => (
-              <div key={sneaks.id} className="bg-amber-100 space-y-4 pb-2 rounded-xl">
-                <Link to={`/product/${sneaks.id}`}>
+              <div key={sneaks._id} className="bg-amber-100 space-y-4 pb-2 rounded-xl">
+                <Link to={`/product/${sneaks._id}`}>
                   <div>
                     <img src={sneaks.image} alt={sneaks.name} className="h-50 rounded-t-xl cursor-pointer w-full" />
                   </div>
