@@ -3,7 +3,7 @@ import SneakIcon from '../../images/sneakShop-icon.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser, faMagnifyingGlass, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from 'react-router-dom';
-import CartBar from '../cartComponent/addToCart'
+import CartBar from '../cartComponent/openCart'
 import { useCart } from '../../../context/cartContext';
 import { useState } from 'react';
 import SideDashboard from './sideDashboard';
