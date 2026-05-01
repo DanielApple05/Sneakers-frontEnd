@@ -49,7 +49,7 @@ const signIn = () => {
       try {
         setLoading(true);
         if (isLogin) {
-          const res = await axios.post(`${API_URL}/auth/login`, { email, password });
+          const res = await axios.post(`${API_URL}/auth/login`, { email, password, username });
           localStorage.setItem('token', res.data.token);
           navigate('/index');
           setLoading(false);
