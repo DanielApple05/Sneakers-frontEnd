@@ -8,6 +8,7 @@ import { useCart } from "../../../context/cartContext";
 import axios from 'axios';
 
 const SingleProductPage = () => {
+   const API_URL = import.meta.env.VITE_API_URL;
   const { addToCart } = useCart();
   const { id } = useParams();
   const [sneaker, setSneaker] = useState(null);
@@ -16,7 +17,7 @@ const SingleProductPage = () => {
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(true);
-  const API_URL = import.meta.env.VITE_API_URL;
+ 
 
   useEffect(() => {
     const fetchSneaker = async () => {
@@ -38,7 +39,7 @@ const SingleProductPage = () => {
     };
 
     fetchSneaker();
-  }, [_id]);
+  }, [id]);
 
   useEffect(() => {
     if (sneaker) {
@@ -107,8 +108,8 @@ const SingleProductPage = () => {
           <h3 className="font-bold">Related Products</h3>
           <div className="flex gap-x-7 items-center justify-center">
             {relatedProducts.map((sneaks) => (
-              <div key={sneaks._id} className="bg-amber-100 space-y-4 pb-2 rounded-xl">
-                <Link to={`/product/${sneaks._id}`}>
+              <div key={sneaks.id} className="bg-amber-100 space-y-4 pb-2 rounded-xl">
+                <Link to={`/product/${sneaks.id}`}>
                   <div>
                     <img src={sneaks.image} alt={sneaks.name} className="h-50 rounded-t-xl cursor-pointer w-full" />
                   </div>

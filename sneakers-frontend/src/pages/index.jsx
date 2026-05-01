@@ -17,7 +17,7 @@ const Index = () => {
     const fetchSneakers = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${API_URL}/sneakers/${_id}`);
+        const res = await axios.get(`${API_URL}/sneakers`);
         setSneakers(res.data);
       } catch (error) {
         console.log('Error fetching sneakers', error);
@@ -26,7 +26,7 @@ const Index = () => {
       }
     };
     fetchSneakers();
-  }, [_id]);
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -61,9 +61,9 @@ const Index = () => {
             {loading ? (
           <p>Loading sneakers...</p>
         ) : (  <div className='flex w-full gap-10 mt-4'>
-          {sneakers.slice(2, 6).map((shoe, _id) => ( 
+          {sneakers.slice(2, 6).map((shoe) => ( 
             <div key={shoe._id} className="w-[25%] bg-gray-400 grid rounded-xl text-lg">
-              <Link to={`/product/${shoe._id}`}> <div>
+              <Link to={`/product/${shoe.id}`}> <div>
                 <img src={shoe.image} alt={shoe.name} className="rounded-t-xl h-full " />
               </div> </Link>
               <div className="grid justify-center text-center pt-2">
