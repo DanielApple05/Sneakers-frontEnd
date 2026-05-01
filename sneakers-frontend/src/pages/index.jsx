@@ -17,7 +17,7 @@ const Index = () => {
     const fetchSneakers = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${API_URL}/sneakers`);
+        const res = await axios.get(`${API_URL}/Sneakers`);
         setSneakers(res.data);
       } catch (error) {
         console.log('Error fetching sneakers', error);
