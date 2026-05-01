@@ -7,18 +7,20 @@ import CartBar from '../cartComponent/addToCart'
 import { useCart } from '../../../context/cartContext';
 import { useState } from 'react';
 import SideDashboard from './sideDashboard';
-
+import { jwtDecode} from 'jwt-decode';
 
 const NavBar = ( ) => {
   const { cartItems } = useCart();
   
+  const token = localStorage.getItem('token');
+ const user = token ? jwtDecode(token) : null;
  const [loggedIn, setLoggedIn] = useState(false);
    const showDashboard = () => {
       setLoggedIn(true);
     };
    
    const hideDashboard = () => {
-      setLoggedIn();
+      setLoggedIn(false);
     };
 
   return (
@@ -68,7 +70,7 @@ const NavBar = ( ) => {
       {
         loggedIn && (
           <div >
-          <SideDashboard hideDashboard={hideDashboard} />
+          <SideDashboard hideDashboard={hideDashboard} user={user} />
           </div>
         )
       }

@@ -81,8 +81,7 @@ const [sneaker, setSneaker] = useState([]);
             ))}
           </div>}
         </div>
-       <hr className="h-76"/>
-        <div className="grid w-[80%] pl-10">
+        <div className="grid w-[80%] pl-10 min-h-screen">
           <div className="flex justify-between ">
             <div className='space-x-4 text-white pb-4'>
               {folders.map((folder) => (
