@@ -7,12 +7,13 @@ import Footer from '../assets/components/footerComponent/footer'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useCart } from '../context/cartContext';
 
 const Index = () => {
   const [sneakers, setSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
   const API_URL = import.meta.env.VITE_API_URL;
-
+  const { addToCart } = useCart();
   useEffect(() => {
     const fetchSneakers = async () => {
       setLoading(true);
@@ -70,8 +71,8 @@ const Index = () => {
                 <h6 className='font-semibold'>{shoe.name}</h6>
                 <p className='text-[18px]'>${shoe.price}</p>
               </div>
-              <button className="bg-blue-400 text-white font-bold p-3 m-4 rounded-xl hover:bg-blue-600 cursor-pointer text-sm">
-                Add to Cart
+              <button className="bg-blue-400 text-white font-bold p-3 m-4 rounded-xl hover:bg-blue-600 cursor-pointer text-sm" onClick={() => addToCart({ ...shoe, quantity: 1 })}>
+                {loading ? 'Adding...' : 'Add to Cart'}
               </button>
             </div>
           ))}
