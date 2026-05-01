@@ -7,6 +7,7 @@ import axios from 'axios';
 
 
 const ShopGallery = () => {
+    const API_URL = import.meta.env.VITE_API_URL; 
 const [sneaker, setSneaker] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,7 +15,7 @@ const [sneaker, setSneaker] = useState([]);
     const fetchSneakers = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('http://localhost:5000/api/sneakers');
+        const res = await axios.get(`${API_URL}/sneakers`);
         setSneaker(res.data);
       } catch (error) {
         console.log('Error fetching sneakers:', error);
