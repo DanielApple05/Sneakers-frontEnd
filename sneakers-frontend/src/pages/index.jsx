@@ -62,7 +62,7 @@ const Index = () => {
           <p>Loading sneakers...</p>
         ) : (  <div className='flex w-full gap-10 mt-4'>
           {sneakers.slice(2, 6).map((shoe) => ( 
-            <div key={shoe.id} className="w-[25%] bg-gray-400 grid rounded-xl text-lg">
+            <div key={shoe._id} className="w-[25%] bg-gray-400 grid rounded-xl text-lg">
               <Link to={`/product/${shoe.id}`}> <div>
                 <img src={shoe.image} alt={shoe.name} className="rounded-t-xl h-full " />
               </div> </Link>
