@@ -7,24 +7,26 @@ import CartBar from '../cartComponent/addToCart'
 import { useCart } from '../../../context/cartContext';
 import { useState } from 'react';
 import SideDashboard from './sideDashboard';
-import { jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
-const NavBar = ( ) => {
+const NavBar = () => {
   const { cartItems } = useCart();
-  
+
   const token = localStorage.getItem('token');
- const user = token ? jwtDecode(token) : null;
- const [loggedIn, setLoggedIn] = useState(false);
-   const showDashboard = () => {
-      setLoggedIn(true);
-    };
-   
-   const hideDashboard = () => {
-      setLoggedIn(false);
-    };
+  const user = token ? jwtDecode(token) : null;
+  const firstLetter = user?.username?.charAt(0).toUpperCase();
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isUser, setIsUser] = useState(!!user);
+  const showDashboard = () => {
+    setLoggedIn(true);
+  };
+
+  const hideDashboard = () => {
+    setLoggedIn(false);
+  };
 
   return (
-    <div className='flex justify-between px-20 bg-black/90 min-h-20 max-h-25 w-full'>
+    <div className='flex justify-between px-20 bg-black/90 min-h-20 max-h-25 w-full relative'>
 
       <div className='flex items-center'>
         <img src={SneakIcon} alt="" className='w-25 rounded-xl' />
@@ -58,20 +60,20 @@ const NavBar = ( ) => {
         {/* Pass count to CartBar */}
         <CartBar cartCount={cartItems.length} />
 
-
-        <button onClick={() => showDashboard(true)}>
-          <FontAwesomeIcon
-            icon={faCircleUser}
-            className='text-[25px] cursor-pointer hover:text-white transition'
-          />
-        </button>
-
+        <div
+          onClick={() => showDashboard(true)}
+          className='text- cursor-pointer hover:text-white transition' >
+          {isUser ?
+            <button className=' bg-red-500 rounded-full px-2 cursor-pointer'
+            >{firstLetter}</button> : <FontAwesomeIcon
+              className='text-[25px]'
+              icon={faCircleUser}
+            />
+          } </div>
       </div>
       {
         loggedIn && (
-          <div >
-          <SideDashboard hideDashboard={hideDashboard} user={user} />
-          </div>
+            <SideDashboard hideDashboard={hideDashboard} user={user} />
         )
       }
     </div>

@@ -3,19 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
 
-const sideDashboard = ( { user, hideDashboard}) => {
+const sideDashboard = ({ user, hideDashboard }) => {
   const navigate = useNavigate();
-   const handleLogout = () => {
+  const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/');
   };
   return (
     <div className="absolute top-0 right-0 bg-black/90 p-4 rounded shadow-lg h-screen w-3/12 flex justify-between text-white">
-      <div className='space-y-7'>
-        <p>Welcome Back {user?.username}</p>
-        <p> You're signed in </p>
+      <div className='space-y-7 relative'>
+        <p>Welcome Back <strong className='text-red-400'>{user?.username}</strong></p>
         <div className='flex items-center space-x-4'>
-         <FontAwesomeIcon
+          <FontAwesomeIcon
             icon={faArrowRight}
             className='text-[16px] cursor-pointer text-red-500 transition'
           />
