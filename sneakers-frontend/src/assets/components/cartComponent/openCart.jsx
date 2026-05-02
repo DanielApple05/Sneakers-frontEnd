@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faX, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from '../../../context/cartContext';
+import { useNavigate } from 'react-router-dom';
 
 const openCart = () => {
   const [isShopping, setIsShopping] = useState(false);
   const { cartItems, removeAnItemFromCart, emptyCart } = useCart();
+  const navigate = useNavigate();
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -62,7 +64,7 @@ const openCart = () => {
                   <span>Total</span>
                   <span>${total.toFixed(2)}</span>
                 </div>
-                <button className="w-full bg-blue-500 text-white py-2 rounded-xl font-bold hover:bg-blue-600">
+                <button className="w-full bg-blue-500 text-white py-2 rounded-xl font-bold hover:bg-blue-600" onClick={() => navigate('/checkout')}>
                   Checkout
                 </button>
                 <button onClick={emptyCart} className="w-full border border-red-400 text-red-400 py-2 rounded-xl hover:bg-red-50">
