@@ -141,8 +141,8 @@ const checkOut = () => {
               </p>
             </div>
           </div>
-          <div className=' flex-1'>
-            <div className='flex justify-between py-2'> 
+          <div className=' flex-1 border border-gray-300 p-1 rounded-lg'>
+            <div className='flex justify-between py-2'>
               <p>
                 Order Summary ({cartItems.length})
               </p>
@@ -150,20 +150,56 @@ const checkOut = () => {
                 Edit Cart
               </p>
             </div>
-            {cartItems.length === 0 ? (
-              <p className="text-gray-500">Your cart is empty.</p>
-            ) : (
-              cartItems.map((item) => (
-                <div key={item.id} className="flex items-center gap-3 mb-4 border-b pb-3">
-                  <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg" />
-                  <div className="flex-1">
-                    <p className="font-medium text-sm">{item.name}</p>
-                    <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
-                    <p className="text-sm font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+            <div className=' overflow-y-auto'>
+              {cartItems.length === 0 ? (
+                <p className="text-gray-500">Your cart is empty.</p>
+              ) : (
+                cartItems.map((item) => (
+                  <div key={item.id} className="flex items-center gap-3 mb-4 border-b pb-3">
+                    <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg" />
+                    <div className="flex-1">
+                      <p className="font-medium text-sm">{item.name}</p>
+                      <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+                      <p className="text-sm font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                    </div>
                   </div>
-                </div>
-              ))
-            )}
+                ))
+              )}
+            </div>
+            <div className='flex justify-between'>
+              <p className='font-semibold'>
+                Total
+              </p>
+              <p className='font-bold'>
+                ${total}.00
+              </p>
+            </div>
+            <div className='p-1 grid gap-4 mt-7 text-xs'>
+              <div>
+                <p className='font-semibold'>
+                  100% Authentic Products
+                </p>
+                <p>
+                  We guarantee authentic sneakers
+                </p>
+              </div>
+              <div>
+                <p className='font-semibold'>
+                  Free Returns
+                </p>
+                <p>
+                  Return within 7 days of delivery
+                </p>
+              </div>
+                 <div>
+                <p className='font-semibold'>
+                  Secure Payment
+                </p>
+                <p>
+                 Your payment is safe with us 
+                </p>
+              </div>
+            </div>
           </div>
         </form>
       </div>
