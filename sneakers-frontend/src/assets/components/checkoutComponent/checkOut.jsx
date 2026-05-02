@@ -74,40 +74,42 @@ const checkOut = () => {
               </div>
             </div>
           </div>
-          <div className=' w-4/12 '>
-            <div>
-              <h2>
-                Payment Method
-              </h2>
-              <p>
-                All transactions are secure and encrypted
-              </p>
-            </div>
-            <div className='border border-gray-300 space-y-3 rounded-lg p-3 mt-4 text-sm'>
+          <div className=' w-4/12'>
+            <div className='border border-gray-300 rounded-lg p-2'>
               <div>
-                <p>Credit/Debit Card</p>
+                <h2 className=' font-bold'>
+                  Payment Method
+                </h2>
+                <p>
+                  All transactions are secure and encrypted
+                </p>
               </div>
-              <div>
-                <label className='block font-medium text-gray-700'> Card Number</label>
-                <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
-                  placeholder='7586 8659 6956' />
-              </div>
-              <div className='flex space-x-3'>
+              <div className='border border-gray-300 space-y-3 rounded-lg p-3 mt-4 text-sm'>
                 <div>
-                  <label className='block font-medium text-gray-700'> Expiry date</label>
-                  <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
-                    placeholder='MM/YY' />
+                  <p>Credit/Debit Card</p>
                 </div>
                 <div>
-                  <label className='block font-medium text-gray-700'> CVV </label>
+                  <label className='block font-medium text-gray-700'> Card Number</label>
                   <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
-                    placeholder='123' />
+                    placeholder='7586 8659 6956' />
                 </div>
-              </div>
-              <div>
-                <label className='block font-medium text-gray-700'> Name On Card </label>
-                <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
-                  placeholder='John Doe' />
+                <div className='flex space-x-3'>
+                  <div>
+                    <label className='block font-medium text-gray-700'> Expiry date</label>
+                    <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
+                      placeholder='MM/YY' />
+                  </div>
+                  <div>
+                    <label className='block font-medium text-gray-700'> CVV </label>
+                    <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
+                      placeholder='123' />
+                  </div>
+                </div>
+                <div>
+                  <label className='block font-medium text-gray-700'> Name On Card </label>
+                  <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
+                    placeholder='John Doe' />
+                </div>
               </div>
             </div>
             <div className='text-sm mt-5 gap-2 grid border border-gray-300 rounded-lg p-3 '>
@@ -118,15 +120,20 @@ const checkOut = () => {
                   Same as shipping address
                 </p>
               </div>
-                <div className='flex gap-2'>
+              <div className='flex gap-2'>
                 <input type="checkbox" />
                 <p>
-                Use a different billing address
+                  Use a different billing address
                 </p>
               </div>
             </div>
-            <div>
-
+            <div className=' space-y-2 w-full'>
+              <button className='bg-black text-white p-2 w-full rounded-lg mt-3'>
+                Continue to Review
+              </button>
+              <p>
+                your payment information is secure and encrypted
+              </p>
             </div>
           </div>
         </form>
