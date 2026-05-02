@@ -4,6 +4,7 @@ import Shop from './pages/shop';
 import SignUp from './assets/components/signUp/signIn';
 import SingleProductPage from './assets/components/singleProductPage/singleProductPage';
 import Checkout from './assets/components/checkoutComponent/checkOut';
+import Contact from './assets/components/contactComponent/contact'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route path="/shop" element={<Shop />} />
       <Route path="/product/:id" element={<SingleProductPage />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 };
