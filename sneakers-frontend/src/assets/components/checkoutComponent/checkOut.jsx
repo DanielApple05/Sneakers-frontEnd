@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../headerComponent/header';
+import { useCart } from '../../../context/cartContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const checkOut = () => {
   const steps = ["information", "payment", "review"];
+  const { cartItems, emptyCart } = useCart();
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return (
     <div>
       <Header />
@@ -135,6 +140,30 @@ const checkOut = () => {
                 your payment information is secure and encrypted
               </p>
             </div>
+          </div>
+          <div className=' flex-1'>
+            <div className='flex justify-between py-2'> 
+              <p>
+                Order Summary ({cartItems.length})
+              </p>
+              <p>
+                Edit Cart
+              </p>
+            </div>
+            {cartItems.length === 0 ? (
+              <p className="text-gray-500">Your cart is empty.</p>
+            ) : (
+              cartItems.map((item) => (
+                <div key={item.id} className="flex items-center gap-3 mb-4 border-b pb-3">
+                  <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg" />
+                  <div className="flex-1">
+                    <p className="font-medium text-sm">{item.name}</p>
+                    <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+                    <p className="text-sm font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </form>
       </div>
