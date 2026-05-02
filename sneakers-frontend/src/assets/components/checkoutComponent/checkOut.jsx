@@ -23,7 +23,7 @@ const checkOut = () => {
         </div>
         <form className='flex space-x-4 mt-5'>
           <div className=' w-4/12 space-y-5 '>
-            <div className='border border-gray-400 rounded-lg p-3 space-y-3 mt-4'>
+            <div className='border border-gray-400 rounded-lg p-3 space-y-3 '>
               <h2 className='text-xl font-semibold'>Contact Information</h2>
               <p>
                 We'll use this email to send you updates about your order, including shipping and delivery notifications.
@@ -133,7 +133,7 @@ const checkOut = () => {
               </div>
             </div>
             <div className=' space-y-2 w-full'>
-              <button className='bg-black text-white p-2 w-full rounded-lg mt-3'>
+              <button className='bg-black text-white p-2 w-full rounded-lg mt-3 font-bold cursor-pointer hover:translate-y-1 hover:bg-red-800 hover:text-black'>
                 Continue to Review
               </button>
               <p>
