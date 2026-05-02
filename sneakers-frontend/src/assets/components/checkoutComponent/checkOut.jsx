@@ -17,70 +17,72 @@ const checkOut = () => {
               </div>
             ))}
           </div>
-          <div>
-            <h2 className='text-xl font-semibold mt-10'>Contact Information</h2>
-            <p>
-              We'll use this email to send you updates about your order, including shipping and delivery notifications.
-            </p>
-            <h6> Email address </h6>
-            <form>
-              <input type="email" placeholder='Enter your email' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-              <div>
-                <input type="checkbox" />
-                <span className='ml-2 text-sm text-gray-600'>Keep me up to date on news and exclusive offers</span>
-              </div>
-            </form>
-            <div>
-              <h2 className='text-xl font-semibold mt-10'>
-                Shipping Address
-              </h2>
-              <form >
+          <form >
+            <div className='flex' >
+              <div className='w-4/12 border p-4 rounded-lg m-4 '>
+                <h2 className='text-xl font-semibold mt-10'>Contact Information</h2>
+                <p>
+                  We'll use this email to send you updates about your order, including shipping and delivery notifications.
+                </p>
+                <h6> Email address </h6>
+
+                <input type="email" placeholder='Enter your email' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
                 <div>
-                  <div className='grid grid-cols-2 gap-6'>
-                    <div>
-                      <label className='block text-sm font-medium text-gray-700'>Full Name</label>
-                      <input type="text" placeholder='Enter your full name' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                    </div>
-                    <div>
-                      <label className='block text-sm font-medium text-gray-700'>Phone number</label>
-                      <input type="tel" placeholder='+234 3454 5433' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                    </div>
-                  </div>
-                  <div>
-                    <label className='block text-sm font-medium text-gray-700'>Address</label>
-                    <input type="text" placeholder='Enter your address' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                  </div>
-                  <div className='flex'>
-                    <div>
-                      <label className='block text-sm font-medium text-gray-700'>City</label>
-                      <input type="text" placeholder='Enter your city' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                    </div>
-                     <div>
-                      <label className='block text-sm font-medium text-gray-700'>City</label>
-                      <input type="text" placeholder='Enter your city' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                    </div>
-                     <div>
-                      <label className='block text-sm font-medium text-gray-700'>City</label>
-                      <input type="text" placeholder='Enter your city' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                    </div>
-                  </div>
-                  <div>
-                    <label className='block text-sm font-medium text-gray-700'>Country</label>
-                    <input type="text" placeholder='Enter your country' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-                  </div>
-                  <div>
-                    <h2 className='text-xl font-semibold mt-10'>
-                      Shipping Method
-                    </h2>
-                 
-                  </div>
+                  <input type="checkbox" />
+                  <span className='ml-2 text-sm text-gray-600'>Keep me up to date on news and exclusive offers</span>
                 </div>
-              </form>
+
+                
+                  <h2 className='text-xl font-semibold mt-10'>
+                    Shipping Address
+                  </h2>
+                  <div>
+                    <div className='grid grid-cols-2 gap-6'>
+                      <div>
+                        <label className='block text-sm font-medium text-gray-700'>Full Name</label>
+                        <input type="text" placeholder='Enter your full name' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                      </div>
+                      <div>
+                        <label className='block text-sm font-medium text-gray-700'>Phone number</label>
+                        <input type="tel" placeholder='+234 3454 5433' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                      </div>
+                    </div>
+                    <div>
+                      <label className='block text-sm font-medium text-gray-700'>Address</label>
+                      <input type="text" placeholder='Enter your address' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                    </div>
+                    <div className='flex'>
+                      <div>
+                        <label className='block text-sm font-medium text-gray-700'>City</label>
+                        <input type="text" placeholder='Enter your city' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                      </div>
+                      <div>
+                        <label className='block text-sm font-medium text-gray-700'>City</label>
+                        <input type="text" placeholder='Enter your city' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                      </div>
+                      <div>
+                        <label className='block text-sm font-medium text-gray-700'>City</label>
+                        <input type="text" placeholder='Enter your city' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                      </div>
+                    </div>
+                    <div>
+                      <label className='block text-sm font-medium text-gray-700'>Country</label>
+                      <input type="text" placeholder='Enter your country' className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+                    </div>
+                    <div>
+                      <h2 className='text-xl font-semibold mt-10'>
+                        Shipping Method
+                      </h2>
+
+                    </div>
+                  </div>
+                
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
