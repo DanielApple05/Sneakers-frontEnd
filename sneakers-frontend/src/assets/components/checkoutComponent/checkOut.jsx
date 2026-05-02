@@ -83,31 +83,50 @@ const checkOut = () => {
                 All transactions are secure and encrypted
               </p>
             </div>
-            <div className='border border-gray-300 space-y-3 rounded-lg p-3 mt-4'>
+            <div className='border border-gray-300 space-y-3 rounded-lg p-3 mt-4 text-sm'>
               <div>
                 <p>Credit/Debit Card</p>
               </div>
-              <div className='grid '>
-                <label> Card Number</label>
-                <input type="text" className='border border-gray-300' placeholder='7586 8659 6956' />
-              </div>
               <div>
-                <div className='grid '>
-                  <label> Expiry date</label>
-                  <input type="text" className='border border-gray-300'
+                <label className='block font-medium text-gray-700'> Card Number</label>
+                <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
+                  placeholder='7586 8659 6956' />
+              </div>
+              <div className='flex space-x-3'>
+                <div>
+                  <label className='block font-medium text-gray-700'> Expiry date</label>
+                  <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
                     placeholder='MM/YY' />
                 </div>
-                <div className='grid '>
-                  <label> CVV </label>
-                  <input type="text" className='border border-gray-300'
+                <div>
+                  <label className='block font-medium text-gray-700'> CVV </label>
+                  <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
                     placeholder='123' />
                 </div>
               </div>
-              <div className='grid '>
-                <label> Name On Card </label>
-                <input type="text" className='border border-gray-300'
+              <div>
+                <label className='block font-medium text-gray-700'> Name On Card </label>
+                <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2'
                   placeholder='John Doe' />
               </div>
+            </div>
+            <div className='text-sm mt-5 gap-2 grid border border-gray-300 rounded-lg p-3 '>
+              <h2 className=' font-bold'> Billing Address</h2>
+              <div className='flex gap-2'>
+                <input type="checkbox" />
+                <p>
+                  Same as shipping address
+                </p>
+              </div>
+                <div className='flex gap-2'>
+                <input type="checkbox" />
+                <p>
+                Use a different billing address
+                </p>
+              </div>
+            </div>
+            <div>
+
             </div>
           </div>
         </form>
