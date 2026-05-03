@@ -49,7 +49,7 @@ const signIn = () => {
       try {
         setLoading(true);
         if (isLogin) {
-          const res = await axios.post(`${API_URL}/auth/login`, { email, password  });
+          const res = await axios.post(`${API_URL}/auth/login`, { email, password });
           localStorage.setItem('token', res.data.token);
           navigate('/index');
           setLoading(false);
@@ -72,125 +72,127 @@ const signIn = () => {
   };
 
   return (
-    <div className="absolute inset-0 bg-no-repeat overflow-hidden bg-center bg-cover w-full place-content-center"
-      style={{ backgroundImage: `url(${SignUpBgIcon})` }}>
-      <div className='flex justify-between w-full '>
-        <div className='m-7 text-white w-6/12'>
-          <div>
-            <button 
-            disabled={loading}
-            className='shop-btn ' >
-              Blog
-            </button>
-          </div>
-          <div className='text-[70px] font-bold tracking-wider text-start  mt-20'>
-            <p className='pl-10'>Step Into</p>
-            <p className='text-amber-400 pl-20'>Your style </p>
-            <p className='text-[14px] text-center mt-5 text-black'>Join thosands, finding their perfect sneakers...</p>
-          </div>
-        </div>
-        <div className=' bg-white rounded-2xl min-w-4/12 mr-25 min-h-3/4 m-15 p-10 '>
-          <div className='mb-3 space-y-2 '>
-            <h3 className=''>
-              {isLogin ? "Get back in" : "Join the sneaker community"}
-            </h3>
-            <p>
-              {isLogin ? "Not a member?" : "Already a member?"}
-              <span
-              disabled={loading}
-                onClick={() => setIsLogin(!isLogin)}
-                className="text-red-600 text-[12px] cursor-pointer ml-1"
-              >
-                {isLogin ? "join" : "Get back in"}
-              </span>
-            </p>
-          </div>
-          <div className='space-y-2 '>
-            <form className='space-y-2' onSubmit={handleSubmit}>
-              {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
-                <FontAwesomeIcon icon={faUser} />
-                <input
-                  type="text"
-                  value={fullName}
-                  disabled={loading}
-                  onChange={(e) => setFullName(e.target.value)}
-                  placeholder='Full Name'
-                  className='outline-none ml-3 w-full' />
-              </div>)}
-              {!isLogin && (errors.fullName && (
-                <p className="text-red-500 text-[10px]">{errors.fullName}</p>
-              ))}
-
-              <div className='border border-gray-400 rounded p-1 flex items-center'>
-                <FontAwesomeIcon icon={faEnvelope} />
-                <input
-                  type="email"
-                  value={email}
-                  disabled={loading}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder='Email Address'
-                  className='outline-none ml-3 w-full'
-                />
-              </div>
-              {errors.email && (
-                <p className="text-red-500 text-[10px]">{errors.email}</p>
-              )}
-              <div className='border border-gray-400 rounded p-1 flex items-center'>
-                <FontAwesomeIcon icon={faLock} />
-                <input
-                  type="password"
-                  disabled={loading}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder='Password' className='outline-none ml-3 w-full' />
-              </div>
-              {errors.password && (
-                <p className="text-red-500 text-[10px]">{errors.password}</p>
-              )}
-
-              {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
-                <FontAwesomeIcon icon={faAnchorLock} />
-                <input
-                  type="password"
-                  disabled={loading}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder='Confirm Password' className='outline-none ml-3 w-full' />
-              </div>)}
-              {!isLogin && (errors.confirmPassword && (
-                <p className="text-red-500 text-[10px]">{errors.confirmPassword}</p>
-              ))}
+    <div>
+      <div className=" bg-no-repeat overflow-hidden bg-center bg-cover w-full place-content-center"
+        style={{ backgroundImage: `url(${SignUpBgIcon})` }}>
+        <div className='flex justify-between w-full '>
+          <div className='m-7 text-white w-6/12'>
+            <div>
               <button
                 disabled={loading}
-                type="submit"
-                className='bg-red-600 rounded-lg text-center text-white py-2 w-full cursor-pointer'
-              >
-                {loading ? "Processing..." : isLogin ? "Login" : "Create Account"}
-              </button>
-            </form>
-            <div className='grid gap-2 '>
-              <button
-                disabled={loading}
-                className='rounded-lg border border-gray-300 shadow-xl p-2  items-center justify-center flex'>
-                <FontAwesomeIcon icon={faGoogle} className='text-yellow-500 text-xl ' />
-                <h3 className='text-center ml-3 cursor-pointer'>
-                  Continue with  Google
-                </h3>
-              </button>
-              <button
-                disabled={loading} className='rounded-lg text-center bg-black text-white shadow-xl p-2  items-center justify-center flex'>
-                <FontAwesomeIcon
-                  icon={faApple}
-                  className='text-xl' />
-                <h3 className='ml-3 cursor-pointer'>
-                  Continue with  Apple
-                </h3>
+                className='shop-btn ' >
+                Blog
               </button>
             </div>
+            <div className='text-[70px] font-bold tracking-wider text-start  mt-20'>
+              <p className='pl-10'>Step Into</p>
+              <p className='text-amber-400 pl-20'>Your style </p>
+              <p className='text-[14px] text-center mt-5 text-black'>Join thosands, finding their perfect sneakers...</p>
+            </div>
+          </div>
+          <div className=' bg-white rounded-2xl min-w-4/12 mr-25 min-h-3/4 m-15 p-10 '>
+            <div className='mb-3 space-y-2 '>
+              <h3 className=''>
+                {isLogin ? "Get back in" : "Join the sneaker community"}
+              </h3>
+              <p>
+                {isLogin ? "Not a member?" : "Already a member?"}
+                <span
+                  disabled={loading}
+                  onClick={() => setIsLogin(!isLogin)}
+                  className="text-red-600 text-[12px] cursor-pointer ml-1"
+                >
+                  {isLogin ? "join" : "Get back in"}
+                </span>
+              </p>
+            </div>
+            <div className='space-y-2 '>
+              <form className='space-y-2' onSubmit={handleSubmit}>
+                {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
+                  <FontAwesomeIcon icon={faUser} />
+                  <input
+                    type="text"
+                    value={fullName}
+                    disabled={loading}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder='Full Name'
+                    className='outline-none ml-3 w-full' />
+                </div>)}
+                {!isLogin && (errors.fullName && (
+                  <p className="text-red-500 text-[10px]">{errors.fullName}</p>
+                ))}
+
+                <div className='border border-gray-400 rounded p-1 flex items-center'>
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  <input
+                    type="email"
+                    value={email}
+                    disabled={loading}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='Email Address'
+                    className='outline-none ml-3 w-full'
+                  />
+                </div>
+                {errors.email && (
+                  <p className="text-red-500 text-[10px]">{errors.email}</p>
+                )}
+                <div className='border border-gray-400 rounded p-1 flex items-center'>
+                  <FontAwesomeIcon icon={faLock} />
+                  <input
+                    type="password"
+                    disabled={loading}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder='Password' className='outline-none ml-3 w-full' />
+                </div>
+                {errors.password && (
+                  <p className="text-red-500 text-[10px]">{errors.password}</p>
+                )}
+
+                {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
+                  <FontAwesomeIcon icon={faAnchorLock} />
+                  <input
+                    type="password"
+                    disabled={loading}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder='Confirm Password' className='outline-none ml-3 w-full' />
+                </div>)}
+                {!isLogin && (errors.confirmPassword && (
+                  <p className="text-red-500 text-[10px]">{errors.confirmPassword}</p>
+                ))}
+                <button
+                  disabled={loading}
+                  type="submit"
+                  className='bg-red-600 rounded-lg text-center text-white py-2 w-full cursor-pointer'
+                >
+                  {loading ? "Processing..." : isLogin ? "Login" : "Create Account"}
+                </button>
+              </form>
+              <div className='grid gap-2 '>
+                <button
+                  disabled={loading}
+                  className='rounded-lg border border-gray-300 shadow-xl p-2  items-center justify-center flex'>
+                  <FontAwesomeIcon icon={faGoogle} className='text-yellow-500 text-xl ' />
+                  <h3 className='text-center ml-3 cursor-pointer'>
+                    Continue with  Google
+                  </h3>
+                </button>
+                <button
+                  disabled={loading} className='rounded-lg text-center bg-black text-white shadow-xl p-2  items-center justify-center flex'>
+                  <FontAwesomeIcon
+                    icon={faApple}
+                    className='text-xl' />
+                  <h3 className='ml-3 cursor-pointer'>
+                    Continue with  Apple
+                  </h3>
+                </button>
+              </div>
+            </div>
+
           </div>
 
         </div>
-
       </div>
     </div>
   );
