@@ -35,14 +35,14 @@ const Index = () => {
       <div className=" bg-cover bg-center bg-no-repeat rounded-b-4xl"
         style={{ backgroundImage: `url(${bgHero})` }}>
 
-        <div className="relative z-10  space-y-3 text-white xl:px-20 px-5 py-10 ">
-          <h5 className=' text-sm font-bold'>
+        <div className="relative z-10  xl:space-y-3 space-y-2 text-white xl:px-20 px-5 xl:py-10 py-5 ">
+          <h5 className=' text-xs font-bold'>
             Latest Collection
           </h5>
-          <p className="text-white xl:text-7xl text-sm font-bold ">
+          <p className="text-white xl:text-7xl text-xs font-semibold ">
             Step Into Style
           </p>
-          <p className='tracking-widest font-bold'>
+          <p className='xl:tracking-widest tracking-wide xl:text-sm text-xs xl:text-white text-red-600'>
             Discover the hottest sneakers of the season
           </p>
           <Link to={"/shop"}>
