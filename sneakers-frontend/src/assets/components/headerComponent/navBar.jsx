@@ -26,19 +26,19 @@ const NavBar = () => {
   };
 
   return (
-    <div className='flex justify-between px-20 bg-black/90 min-h-20 max-h-25 w-full relative'>
+    <div className='flex justify-between px-20 bg-black/90 min-h-15 max-h-20 w-full relative'>
 
       <div className='flex items-center'>
         <img src={SneakIcon} alt="" className='w-25 rounded-xl' />
       </div>
 
-      <div className='space-x-12.5 flex pt-10 text-sm'>
-        {NavBtns.map((navBtn, index) => (
+      <div className='space-x-12.5 flex pt-6 text-sm'>
+        {NavBtns.map((navBtn, index) => ( 
           <NavLink
             key={index}
             to={navBtn.path}
             className={({ isActive }) =>
-              `cursor-pointer font-bold transition ${isActive
+              ` cursor-pointer font-bold transition ${isActive
                 ? "border-b-2 border-white text-white"
                 : "text-gray-400 hover:text-white"
               }`

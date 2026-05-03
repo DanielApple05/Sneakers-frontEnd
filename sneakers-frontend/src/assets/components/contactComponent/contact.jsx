@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../headerComponent/header';
+import Footer from '../footerComponent/footer'
 import contactHero from '../../images/contactHeroBg.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -122,6 +123,7 @@ const contact = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
