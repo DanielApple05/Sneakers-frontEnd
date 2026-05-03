@@ -6,18 +6,18 @@ const contact = () => {
   return (
     <div>
       <Header />
-      <div className='relative' > 
+      <div className='relative ' >
         <img
           src={contactHero}
           className='object-cover w-full h-100'
           alt="" />
-        <div className='absolute top-0 p-15 font-bold '>
+        <div className='absolute top-0 p-15 ml-5 mt-10 font-bold w-4/12 space-y-3 '>
           <p className=''>
-            We're Here 
+            We're Here
           </p>
-          <h1 className='tracking-widest'>To Help</h1>
+          <h1>To Help</h1>
           <p className='font-semibold text-xs'>
-            Have a question or
+            Have a question or just want to say hello? Get in touch with us today.
           </p>
           <h3 className='font-bold'>
             Contact Us
@@ -25,9 +25,9 @@ const contact = () => {
         </div>
       </div>
       <div className='flex'>
-        <div>
-          <div>
-            <h3>
+        <div className='text-sm space-y-3 p-4 '>
+          <div className='mb-6'>
+            <h3 className='block font-medium text-gray-700'>
               Send us a message
             </h3>
             <p>
@@ -35,20 +35,20 @@ const contact = () => {
             </p>
           </div>
           <div>
-            <label> Full name </label>
-            <input type="text" />
+            <label className='block font-medium text-gray-700'> Full name </label>
+            <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
           </div>
           <div>
-            <label> Email Address </label>
-            <input type="text" />
+            <label className='block font-medium text-gray-700' > Email Address </label>
+            <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
           </div>
           <div>
-            <label> Subject </label>
-            <input type="text" />
+            <label className='block font-medium text-gray-700'> Subject </label>
+            <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
           </div>
           <div>
-            <label> Message </label>
-            <textarea />
+            <label className='block font-medium text-gray-700'> Message </label>
+            <textarea className='border border-gray-300 rounded-md p-5 w-full mt-2'/>
           </div>
         </div>
       </div>
