@@ -30,21 +30,18 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div>
       <Header />
-      <section className="relative h-screen">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-b-4xl"
-          style={{ backgroundImage: `url(${bgHero})` }}
-        />
-        <div />
-        <div className="relative z-10  space-y-3 text-white px-20 py-10 ">
-          <h5 className='font-bold'>
+      <div className=" bg-cover bg-center bg-no-repeat rounded-b-4xl"
+        style={{ backgroundImage: `url(${bgHero})` }}>
+
+        <div className="relative z-10  space-y-3 text-white xl:px-20 px-5 py-10 ">
+          <h5 className=' text-sm font-bold'>
             Latest Collection
           </h5>
-          <h1 className="text-white text-7xl font-bold ">
+          <p className="text-white xl:text-7xl text-sm font-bold ">
             Step Into Style
-          </h1>
+          </p>
           <p className='tracking-widest font-bold'>
             Discover the hottest sneakers of the season
           </p>
@@ -54,19 +51,19 @@ const Index = () => {
             </button>
           </Link>
         </div>
-      </section>
-      <div className='bg-white px-20 py-10'>
+      </div>
+      <div className='bg-white xl:px-20 px-5 py-10 xl:text-sm text-xs'>
         <h3 className='font-bold'>
           Best Sellers
         </h3>
-            {loading ? (
+        {loading ? (
           <p>Loading sneakers...</p>
-        ) : (  <div className='flex w-full gap-10 mt-4'>
-          {sneakers.slice(2, 6).map((shoe) => ( 
-            <div key={shoe._id} className="w-[25%] bg-gray-400 grid rounded-xl text-lg">
-              <Link to={`/product/${shoe.id}`}> <div>
+        ) : (<div className='xl:flex grid grid-cols-2 w-full xl:gap-10 gap-2 mt-4'>
+          {sneakers.slice(2, 6).map((shoe) => (
+            <div key={shoe._id} className=" bg-gray-400 grid rounded-xl  ">
+              <Link to={`/product/${shoe.id}`}>
                 <img src={shoe.image} alt={shoe.name} className="rounded-t-xl h-full " />
-              </div> </Link>
+              </Link>
               <div className="grid justify-center text-center pt-2">
                 <h6 className='font-semibold'>{shoe.name}</h6>
                 <p className='text-[18px]'>${shoe.price}</p>
@@ -76,11 +73,11 @@ const Index = () => {
               </button>
             </div>
           ))}
-           </div>
+        </div>
         )}
-        <div className='flex w-full justify-between  my-10 gap-10 h-100'>
-          <div className='w-[50%] relative h-3/4 '>
-            <img src={jordans_2} alt="" className="w-full h-full object-cover" />
+        <div className='xl:flex grid w-full justify-between  my-10 gap-10'>
+          <div className='w-full relative '>
+            <img src={jordans_2} alt="" className="w-full object-cover" />
 
             <div className="absolute top-5 left-10 font-semibold space-y-1">
               <p >
@@ -94,8 +91,8 @@ const Index = () => {
               </button>
             </div>
           </div>
-          <div className='w-6/12 relative h-3/4 '>
-            <img src={Jordans_f} alt="" className="w-full h-full object-cover" />
+          <div className='w-full rounded-lg relative '>
+            <img src={Jordans_f} alt="" className="w-full rounded-2xl object-cover" />
             <div className="absolute top-5 left-10 font-semibold space-y-1 ">
               <p >
                 Women's Collection
