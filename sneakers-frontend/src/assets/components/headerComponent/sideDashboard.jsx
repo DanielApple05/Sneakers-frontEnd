@@ -10,7 +10,8 @@ const sideDashboard = ({ user, hideDashboard }) => {
     navigate('/');
   };
   return (
-    <div className="absolute top-0 right-0 bg-black/90 p-4 rounded shadow-lg h-screen w-3/12 flex justify-between text-white">
+<div>
+      <div className="absolute top-0 right-0 bg-black/90 p-4 rounded shadow-lg h-screen w-9/12 flex justify-between text-white">
       <div className='space-y-7 relative'>
         <p>Welcome Back <strong className='text-red-400'>{user?.username}</strong></p>
         <div className='flex items-center space-x-4'>
@@ -29,6 +30,7 @@ const sideDashboard = ({ user, hideDashboard }) => {
         onClick={() => hideDashboard(true)}
       />
     </div>
+</div>
   );
 }
 
