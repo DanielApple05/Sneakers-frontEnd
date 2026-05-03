@@ -98,7 +98,7 @@ const signIn = () => {
                 </span>
               </p>
             </div>
-            <div className='space-y-2 '>
+            <div className='space-y-2 text-sm'>
               <form className='space-y-2 text-xs' onSubmit={handleSubmit}>
                 {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
                   <FontAwesomeIcon icon={faUser} />
@@ -181,9 +181,7 @@ const signIn = () => {
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>

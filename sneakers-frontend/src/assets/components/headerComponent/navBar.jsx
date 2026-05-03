@@ -16,6 +16,7 @@ const NavBar = () => {
   const user = token ? jwtDecode(token) : null;
   const firstLetter = user?.username?.charAt(0).toUpperCase();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [mobileView, setMobileView] = useState(false)
   const [isUser, setIsUser] = useState(!!user);
   const showDashboard = () => {
     setLoggedIn(true);
@@ -28,17 +29,16 @@ const NavBar = () => {
   return (
     <div className='flex justify-between px-20 bg-black/90 min-h-15 max-h-20 w-full relative'>
 
-      <div className='flex items-center'>
+      <div className='xl:flex items-center hidden '>
         <img src={SneakIcon} alt="" className='w-25 rounded-xl' />
       </div>
-
-      <div className='space-x-12.5 flex pt-6 text-sm'>
-        {NavBtns.map((navBtn, index) => ( 
+      <div className='xl:flex pt-6 text-sm space-x-12 hidden'>
+        {NavBtns.map((navBtn, index) => (
           <NavLink
             key={index}
             to={navBtn.path}
             className={({ isActive }) =>
-              ` cursor-pointer font-bold transition ${isActive
+              `cursor-pointer font-bold transition ${isActive
                 ? "border-b-2 border-white text-white"
                 : "text-gray-400 hover:text-white"
               }`
@@ -48,7 +48,6 @@ const NavBar = () => {
           </NavLink>
         ))}
       </div>
-
       <div className="text-gray-400 flex gap-7.5 items-center">
         <button>
           <FontAwesomeIcon
@@ -73,7 +72,7 @@ const NavBar = () => {
       </div>
       {
         loggedIn && (
-            <SideDashboard hideDashboard={hideDashboard} user={user} />
+          <SideDashboard hideDashboard={hideDashboard} user={user} />
         )
       }
     </div>
