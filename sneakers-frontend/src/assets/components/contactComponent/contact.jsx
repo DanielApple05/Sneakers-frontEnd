@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../headerComponent/header';
 import contactHero from '../../images/contactHeroBg.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const contact = () => {
   return (
@@ -34,21 +36,79 @@ const contact = () => {
               Have questions or need help with your order? fill out the form below and we will get back to you as soon as possible.
             </p>
           </div>
-          <div>
-            <label className='block font-medium text-gray-700'> Full name </label>
-            <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+          <form>
+            <div>
+              <label className='block font-medium text-gray-700'> Full name </label>
+              <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+            </div>
+            <div>
+              <label className='block font-medium text-gray-700' > Email Address </label>
+              <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+            </div>
+            <div>
+              <label className='block font-medium text-gray-700'> Subject </label>
+              <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
+            </div>
+            <div>
+              <label className='block font-medium text-gray-700'> Message </label>
+              <textarea className='border border-gray-300 rounded-md p-5 w-full mt-2' />
+            </div>
+            <button className='bg-black text-white p-2 rounded-xl hover:translate-y-1 hover:bg-gray-700 cursor-pointer'>
+              Send message
+            </button>
+          </form>
+        </div>
+        <div className=''>
+          <div className='mb-4 text-xs space-y-1'>
+            <h3>
+              Other ways to reach us:
+            </h3>
+            <p>
+              You can connect to us through the channels below
+            </p>
           </div>
-          <div>
-            <label className='block font-medium text-gray-700' > Email Address </label>
-            <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-          </div>
-          <div>
-            <label className='block font-medium text-gray-700'> Subject </label>
-            <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
-          </div>
-          <div>
-            <label className='block font-medium text-gray-700'> Message </label>
-            <textarea className='border border-gray-300 rounded-md p-5 w-full mt-2'/>
+          <div className='grid gap-4'>
+            <div className='flex gap-2 '>
+              <div className='bg-red-100 p-3 flex h-full rounded items-center'>
+                <FontAwesomeIcon icon={faEnvelope}
+                  className=' text-2xl' />
+              </div>
+              <div className='text-xs space-y-1'>
+                <p className='font-bold'>
+                  Email Us
+                </p>
+                <p className='font-semibold'>
+                  support@sneakers.com
+                </p>
+                <p>
+                  We usually reply within 24 hours
+                </p>
+              </div>
+            </div>
+            <div>
+              <div className='text-xs space-y-1'>
+              <p className='font-bold'>
+                Call Us
+              </p>
+              <p className='font-semibold'>
+                +234 90 2032 4848
+              </p>
+              <p>
+                Mon - Fri, 9AM - 6PM (WAT)
+              </p>
+            </div>
+            </div>
+            <div className='text-xs space-y-1'>
+              <p className='font-bold'>
+                Visit our Port folio
+              </p>
+              <p className='font-semibold'>
+                support@sneakers.com
+              </p>
+              <p>
+                We usually reply within 24 hours
+              </p>
+            </div>
           </div>
         </div>
       </div>
