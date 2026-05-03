@@ -161,7 +161,7 @@ const signIn = () => {
                   {loading ? "Processing..." : isLogin ? "Login" : "Create Account"}
                 </button>
               </form>
-              <div className='grid gap-2 xl:text-sm text-xs '>
+              <div className='grid gap-2 text-sm '>
                 <button
                   disabled={loading}
                   className='rounded-lg border border-gray-300 shadow-xl p-2  items-center justify-center flex'>
