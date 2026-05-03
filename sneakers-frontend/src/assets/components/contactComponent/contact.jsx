@@ -26,8 +26,8 @@ const contact = () => {
           </h3>
         </div>
       </div>
-      <div className='flex'>
-        <div className='text-sm space-y-3 p-4 '>
+      <div className='flex gap-15 pl-15'>
+        <div className='text-sm w-full space-y-3 p-4  '>
           <div className='mb-6'>
             <h3 className='block font-medium text-gray-700'>
               Send us a message
@@ -58,7 +58,7 @@ const contact = () => {
             </button>
           </form>
         </div>
-        <div className=''>
+        <div className='py-10 m-3 w-full '>
           <div className='mb-4 text-xs space-y-1'>
             <h3>
               Other ways to reach us:
@@ -85,29 +85,39 @@ const contact = () => {
                 </p>
               </div>
             </div>
-            <div>
+            <div className='flex gap-2'>
+              <div className='bg-red-100 p-3 flex h-full rounded items-center'>
+                <FontAwesomeIcon icon={faPhone}
+                  className=' text-2xl' />
+              </div>
               <div className='text-xs space-y-1'>
-              <p className='font-bold'>
-                Call Us
-              </p>
-              <p className='font-semibold'>
-                +234 90 2032 4848
-              </p>
-              <p>
-                Mon - Fri, 9AM - 6PM (WAT)
-              </p>
+                <p className='font-bold'>
+                  Call Us
+                </p>
+                <p className='font-semibold'>
+                  +234 90 2032 4848
+                </p>
+                <p>
+                  Mon - Fri, 9AM - 6PM (WAT)
+                </p>
+              </div>
             </div>
-            </div>
-            <div className='text-xs space-y-1'>
-              <p className='font-bold'>
-                Visit our Port folio
-              </p>
-              <p className='font-semibold'>
-                support@sneakers.com
-              </p>
-              <p>
-                We usually reply within 24 hours
-              </p>
+            <div className='flex gap-2'>
+              <div className='bg-red-100 p-3 flex h-full rounded items-center'>
+                <FontAwesomeIcon icon={faPhone}
+                  className=' text-2xl' />
+              </div>
+              <div className='text-xs space-y-1'>
+                <p className='font-bold'>
+                  Visit our Port folio
+                </p>
+                <p className='font-semibold'>
+                  support@sneakers.com
+                </p>
+                <p>
+                  We usually reply within 24 hours
+                </p>
+              </div>
             </div>
           </div>
         </div>
