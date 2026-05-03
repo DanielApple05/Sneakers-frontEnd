@@ -84,7 +84,7 @@ const NavBar = () => {
       </div>
       {
         mobileView && (
-          <div className=' grid pl-5 bg-black/90 z-50 relative '>
+          <div className=' grid pl-5 py-5 space-y-2 rounded bg-gray-500/90 z-50 absolute min-w-30 text-black '>
             {NavBtns.map((navBtn, index) => (
               <NavLink
                 key={index}
