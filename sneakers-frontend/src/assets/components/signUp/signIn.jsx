@@ -73,24 +73,16 @@ const signIn = () => {
 
   return (
     <div>
-      <div className=" bg-no-repeat overflow-hidden bg-center bg-cover w-full place-content-center"
+      <div className="absolute inset-0 bg-no-repeat overflow-hidden bg-center bg-cover w-full place-content-center max-w-full"
         style={{ backgroundImage: `url(${SignUpBgIcon})` }}>
-        <div className='flex justify-between w-full '>
-          <div className='m-7 text-white w-6/12'>
-            <div>
-              <button
-                disabled={loading}
-                className='shop-btn ' >
-                Blog
-              </button>
-            </div>
-            <div className='text-[70px] font-bold tracking-wider text-start  mt-20'>
-              <p className='pl-10'>Step Into</p>
-              <p className='text-amber-400 pl-20'>Your style </p>
-              <p className='text-[14px] text-center mt-5 text-black'>Join thosands, finding their perfect sneakers...</p>
-            </div>
+        <div className='xl:flex grid xl:gap-y-0 gap-y-7 justify-between w-full xl:p-0 p-4  '>
+          <div className='xl:text-[70px] text-[40px] font-bold tracking-wider text-start xl:m-7 m-2 xl:p-7 p-2 text-white xl:w-6/12 w-full flex flex-col justify-center'>
+            <p className='xl:pl-10 pl-5'>Step Into</p>
+            <p className='text-amber-400 xl:pl-20 pl-10'>Your style </p>
+            <p className='text-[14px] text-center mt-5 text-black'>Join thosands, finding their perfect sneakers...</p>
           </div>
-          <div className=' bg-white rounded-2xl min-w-4/12 mr-25 min-h-3/4 m-15 p-10 '>
+
+          <div className=' bg-white rounded-2xl xl:min-w-4/12 min-w-full xl:mr-25 mr-0 min-h-3/4  xl:p-10 p-5 '>
             <div className='mb-3 space-y-2 '>
               <h3 className=''>
                 {isLogin ? "Get back in" : "Join the sneaker community"}
@@ -100,14 +92,14 @@ const signIn = () => {
                 <span
                   disabled={loading}
                   onClick={() => setIsLogin(!isLogin)}
-                  className="text-red-600 text-[12px] cursor-pointer ml-1"
+                  className="text-red-600 cursor-pointer ml-1"
                 >
                   {isLogin ? "join" : "Get back in"}
                 </span>
               </p>
             </div>
             <div className='space-y-2 '>
-              <form className='space-y-2' onSubmit={handleSubmit}>
+              <form className='space-y-2 text-xs' onSubmit={handleSubmit}>
                 {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
                   <FontAwesomeIcon icon={faUser} />
                   <input
@@ -169,7 +161,7 @@ const signIn = () => {
                   {loading ? "Processing..." : isLogin ? "Login" : "Create Account"}
                 </button>
               </form>
-              <div className='grid gap-2 '>
+              <div className='grid gap-2 xl:text-sm text-xs '>
                 <button
                   disabled={loading}
                   className='rounded-lg border border-gray-300 shadow-xl p-2  items-center justify-center flex'>
