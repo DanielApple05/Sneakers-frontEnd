@@ -12,23 +12,23 @@ const contact = () => {
       <div className='relative ' >
         <img
           src={contactHero}
-          className='object-cover w-full h-100'
+          className='object-cover w-full'
           alt="" />
-        <div className='absolute top-0 p-15 ml-5 mt-10 font-bold w-4/12 space-y-3 '>
+        <div className='absolute top-0 xl:p-15 p-3 ml-5 mt-1 font-bold xl:w-4/12 w-8/12 xl:space-y-3 space-y-1 xl:text-sm text-xs '>
           <p className=''>
             We're Here
           </p>
-          <h1>To Help</h1>
+          <p className='xl:text-[35px] text-xs'>To Help</p>
           <p className='font-semibold text-xs'>
             Have a question or just want to say hello? Get in touch with us today.
           </p>
-          <h3 className='font-bold'>
+          <p className='font-bold'>
             Contact Us
-          </h3>
+          </p>
         </div>
       </div>
-      <div className='flex gap-15 pl-15'>
-        <div className='text-sm w-full space-y-3 p-4  '>
+      <div className='xl:flex grid xl:gap-15 gap-5 xl:p-15 p-5'>
+        <div className='text-sm w-full space-y-3 xl:p-4 p-0  '>
           <div className='mb-6'>
             <h3 className='block font-medium text-gray-700'>
               Send us a message
@@ -37,7 +37,7 @@ const contact = () => {
               Have questions or need help with your order? fill out the form below and we will get back to you as soon as possible.
             </p>
           </div>
-          <form>
+          <form className='xl:text-sm text-xs space-y-2'>
             <div>
               <label className='block font-medium text-gray-700'> Full name </label>
               <input type="text" className='border border-gray-300 rounded-md p-2 w-full mt-2' />
@@ -59,7 +59,7 @@ const contact = () => {
             </button>
           </form>
         </div>
-        <div className='py-10 m-3 w-full '>
+        <div className='py-10 xl:m-3 m-0 w-full '>
           <div className='mb-4 text-xs space-y-1'>
             <h3>
               Other ways to reach us:
