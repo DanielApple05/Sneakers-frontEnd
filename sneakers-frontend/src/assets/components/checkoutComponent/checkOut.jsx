@@ -11,9 +11,9 @@ const checkOut = () => {
   return (
     <div>
       <Header />
-      <div className='p-10 w-full'>
+      <div className='xl:p-10 p-5 w-full'>
         <h1 className='text-center text-2xl font-bold'>Checkout Page</h1>
-        <div className='flex space-x-15 '>
+        <div className='flex xl:space-x-15 space-x-3 mt-4'>
           {steps.map((step, index) => (
             <div key={index} className={`flex items-center gap-2 `}>
               <div className='bg-blue-600 rounded-full px-2 ' >{index + 1}</div>
@@ -21,8 +21,8 @@ const checkOut = () => {
             </div>
           ))}
         </div>
-        <form className='flex space-x-4 mt-5'>
-          <div className=' w-4/12 space-y-5 '>
+        <form className='xl:flex grid  gap-4 mt-5'>
+          <div className=' xl:w-4/12 w-full xl:space-y-5 space-y-2 '>
             <div className='border border-gray-400 rounded-lg p-3 space-y-3 '>
               <h2 className='text-xl font-semibold'>Contact Information</h2>
               <p>
@@ -79,7 +79,7 @@ const checkOut = () => {
               </div>
             </div>
           </div>
-          <div className=' w-4/12'>
+          <div className=' xl:w-4/12 w-full'>
             <div className='border border-gray-300 rounded-lg p-2'>
               <div>
                 <h2 className=' font-bold'>
