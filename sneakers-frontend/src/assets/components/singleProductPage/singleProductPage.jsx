@@ -44,7 +44,7 @@ const SingleProductPage = () => {
     <div>
       <Header />
       <div className="p-4 grid gap-5">
-        <div className="xl:max-w-2xl max-w-full mx-auto bg-[#f5d19f] p-6 shadow-lg xl:my-10 my-0 rounded text-gray-700 xl:flex grid gap-x-5">
+        <div className="xl:max-w-2xl max-w-full mx-auto bg-[#f5d19f] p-6 shadow-lg xl:my-10 my-0 rounded text-gray-700 xl:flex grid gap-5">
           {/* Images */}
           <div className="w-full">
             <img src={mainImage} alt={sneaker.name} className="w-full mb-4 rounded-xl transition-opacity duration-300" />
