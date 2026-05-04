@@ -10,6 +10,7 @@ const ShopGallery = () => {
   const API_URL = import.meta.env.VITE_API_URL;
   const [sneaker, setSneaker] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchSneakers = async () => {
@@ -48,25 +49,25 @@ const ShopGallery = () => {
 
   return (
     <div>
-      <div className=' xl:py-10 py-5 w-full bg-[#FDF6EC] min-h-screen xl:text-sm text-xs'>
-        <h2 className="mb-6  pl-20 font-bold relative ">
+      <div className=' xl:py-10 py-5 w-full bg-[#FDF6EC] min-h-screen xl:text-sm text-xs '>
+        <h3 className="mb-6  xl:pl-20 pl-5 font-bold relative ">
           Shop
-        </h2>
+        </h3>
         <div className="flex xl:pr-10 pr-5 justify-between ">
-          <div className='bg-white xl:ml-10 ml-5 xl:w-[15%] w-[35%] h-65'>
-            <div className='font-semibold border-b p-3 flex items-center justify-between'>
+          <div className='bg-white xl:ml-10 ml-5 xl:min-w-[15%] min-w-[30%] xl:h-65 h-50'>
+            <div className='font-semibold border-b xl:p-3 p-1 flex items-center justify-between'>
               <h6 className=''>
                 Filters
               </h6>
               <FontAwesomeIcon icon={isClosed ? faAngleDown : faAngleRight} onClick={() => setIsClosed(!isClosed)} />
             </div>
-            {isClosed && <div  >
+            {isClosed && <div className="p-2" >
               <div className="flex items-center justify-between mb-2">
                 <h6>Brands</h6>
                 <FontAwesomeIcon icon={isOpen ? faAngleRight : faAngleDown} onClick={() => setIsOpen(!isOpen)} />
               </div>
               {!isOpen && shoeBrands.map((brand) => (
-                <div key={brand} className="flex gap-2 items-center">
+                <div key={brand} className=" flex xl:gap-2 gap-1 items-center ">
                   <input
                     type="checkbox"
                     checked={selectedBrands.includes(brand)}
@@ -78,7 +79,7 @@ const ShopGallery = () => {
                       }
                     }}
                   />
-                  <span className="text-start p-2 text-sm capitalize">{brand}</span>
+                  <span className="text-start p-2 xl:text-sm text-xs capitalize">{brand}</span>
                 </div>
               ))}
             </div>}
@@ -87,13 +88,13 @@ const ShopGallery = () => {
             <div className="flex justify-between ">
               <div className='space-x-4 text-white pb-4'>
                 {folders.map((folder) => (
-                  <button key={folder} onClick={() => setActiveFilter(folder)} className={` py-2 px-6 rounded-xl cursor-pointer hover:bg-red-800  ${activeFilter === folder
+                  <button key={folder} onClick={() => setActiveFilter(folder)} className={` xl:py-2 py-1 xl:px-6 px-2 rounded-xl cursor-pointer hover:bg-red-800  ${activeFilter === folder
                     ? "bg-red-700 text-white"
                     : "bg-gray-400 text-white hover:bg-red-800"
                     }`}>{folder}</button>))}
               </div>
               <div>
-                <FontAwesomeIcon onClick={clearFilters} icon={faArrowRotateLeft} className={`text-xl  hover:text-red-800`} />
+                <FontAwesomeIcon onClick={clearFilters} icon={faArrowRotateLeft} className={`xl:text-xl text-xs  hover:text-red-800`} />
               </div>
             </div>
             <div className='grid xl:grid-cols-4 grid-cols-2 xl:gap-6 gap-2 '>
@@ -109,7 +110,10 @@ const ShopGallery = () => {
                     <h6 className="font-semibold">{shoe.name}</h6>
                     <p>${shoe.price}</p>
                   </div>
-                  <button type="button" className="bg-blue-400 text-white m-4 font-bold p-3 rounded-xl cursor-pointer hover:bg-blue-500">
+                  <button 
+                  type="button"
+                    onClick={ () => addToCart({ ...shoe, quantity: 1 }) } 
+                  className="bg-blue-400 text-white m-4 font-bold p-3 rounded-xl cursor-pointer hover:bg-blue-500">
                     Add to Cart
                   </button>
                 </div>
