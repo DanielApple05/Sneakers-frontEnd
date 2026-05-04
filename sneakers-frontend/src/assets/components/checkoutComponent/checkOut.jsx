@@ -21,7 +21,7 @@ const checkOut = () => {
             </div>
           ))}
         </div>
-        <form className='xl:flex grid  gap-4 mt-5'>
+        <form className='xl:flex grid gap-4 mt-5'>
           <div className=' xl:w-4/12 w-full xl:space-y-5 space-y-2 '>
             <div className='border border-gray-400 rounded-lg p-3 space-y-3 '>
               <h2 className='text-xl font-semibold'>Contact Information</h2>
