@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faUser, faLock, faAnchorLock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUser, faLock, faEye } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 import SignUpBgIcon from '../../images/signUpBg.png';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ const signIn = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
 
 
   const handleSubmit = async (e) => {
@@ -61,7 +62,7 @@ const signIn = () => {
             password,
             username: fullName
           });
-           navigate('/index');
+          navigate('/login');
           alert(res.data.message);
         }
       } catch (error) {
@@ -101,7 +102,7 @@ const signIn = () => {
             </div>
             <div className='space-y-2 text-sm'>
               <form className='space-y-2 text-xs' onSubmit={handleSubmit}>
-                {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
+                {!isLogin && (<div className='border border-gray-400 rounded p-2 flex items-center'>
                   <FontAwesomeIcon icon={faUser} />
                   <input
                     type="text"
@@ -115,7 +116,7 @@ const signIn = () => {
                   <p className="text-red-500 text-[10px]">{errors.fullName}</p>
                 ))}
 
-                <div className='border border-gray-400 rounded p-1 flex items-center'>
+                <div className='border border-gray-400 rounded p-2 flex items-center'>
                   <FontAwesomeIcon icon={faEnvelope} />
                   <input
                     type="email"
@@ -129,27 +130,30 @@ const signIn = () => {
                 {errors.email && (
                   <p className="text-red-500 text-[10px]">{errors.email}</p>
                 )}
-                <div className='border border-gray-400 rounded p-1 flex items-center'>
+                <div className='border border-gray-400 rounded p-2 flex items-center'>
                   <FontAwesomeIcon icon={faLock} />
                   <input
-                    type="password"
+                    type= {showPassword ? "text" : "password" }
                     disabled={loading}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder='Password' className='outline-none ml-3 w-full' />
+                    placeholder='Password' className='outline-none ml-3 w-full'
+                    />
+                  {/* <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={faEye} className='cursor-pointer mr-2' /> */}
                 </div>
                 {errors.password && (
                   <p className="text-red-500 text-[10px]">{errors.password}</p>
                 )}
 
-                {!isLogin && (<div className='border border-gray-400 rounded p-1 flex items-center'>
-                  <FontAwesomeIcon icon={faAnchorLock} />
+                {!isLogin && (<div className='border border-gray-400 rounded p-2 flex items-center'>
+                  <FontAwesomeIcon icon={faLock} />
                   <input
-                    type="password"
+                     type= {showPassword ? "text" : "password" }
                     disabled={loading}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder='Confirm Password' className='outline-none ml-3 w-full' />
+                  <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={faEye} className='cursor-pointer mr-2' />
                 </div>)}
                 {!isLogin && (errors.confirmPassword && (
                   <p className="text-red-500 text-[10px]">{errors.confirmPassword}</p>
