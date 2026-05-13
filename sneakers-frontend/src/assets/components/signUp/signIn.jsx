@@ -62,8 +62,8 @@ const signIn = () => {
             password,
             username: fullName
           });
-          navigate('/login');
-          alert(res.data.message);
+            alert(res.data.message);
+          navigate('/login')
         }
       } catch (error) {
         alert(error.response?.data?.message || 'Something went wrong');
