@@ -61,7 +61,7 @@ const signIn = () => {
             password,
             username: fullName
           });
-           navigate('/signIn');
+           navigate('/index');
           alert(res.data.message);
         }
       } catch (error) {
