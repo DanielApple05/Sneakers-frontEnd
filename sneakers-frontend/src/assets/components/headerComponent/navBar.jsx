@@ -12,9 +12,9 @@ import { jwtDecode } from 'jwt-decode';
 const NavBar = () => {
   const { cartItems } = useCart();
 
- const token = localStorage.getItem('token');
-const isValidToken = token && token !== 'undefined' && token.split('.').length === 3;
-const user = isValidToken ? jwtDecode(token) : null;
+  const token = localStorage.getItem('token');
+  const isValidToken = token && token !== 'undefined' && token.split('.').length === 3;
+  const user = isValidToken ? jwtDecode(token) : null;
   const firstLetter = user?.username?.charAt(0).toUpperCase();
   const [loggedIn, setLoggedIn] = useState(false);
   const [mobileView, setMobileView] = useState(false)
