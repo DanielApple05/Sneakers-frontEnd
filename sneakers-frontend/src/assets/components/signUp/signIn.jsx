@@ -16,7 +16,7 @@ const signIn = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
 
   const handleSubmit = async (e) => {
@@ -137,10 +137,14 @@ const signIn = () => {
                     type= {showPassword ? "text" : "password" }
                     disabled={loading}
                     value={password}
+                    onInput={ () => setShowPassword(false)}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder='Password' className='outline-none ml-3 w-full'
                     />
-                  {/* <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={faEye} className='cursor-pointer mr-2' /> */}
+                       <FontAwesomeIcon 
+                  icon={faEye} 
+                  onClick={() => setShowPassword(!showPassword)} 
+                  className='cursor-pointer mr-2' />
                 </div>
                 {errors.password && (
                   <p className="text-red-500 text-[10px]">{errors.password}</p>
@@ -149,12 +153,12 @@ const signIn = () => {
                 {!isLogin && (<div className='border border-gray-400 rounded p-2 flex items-center'>
                   <FontAwesomeIcon icon={faLock} />
                   <input
-                     type= {showPassword ? "text" : "password" }
+                     type= { showPassword ? "text" : "password" }
                     disabled={loading}
+                    onInput={ () => setShowPassword(false)}
                     value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    onChange={(e) => {setConfirmPassword(e.target.value)  }}
                     placeholder='Confirm Password' className='outline-none ml-3 w-full' />
-                  <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={faEye} className='cursor-pointer mr-2' />
                 </div>)}
                 {!isLogin && (errors.confirmPassword && (
                   <p className="text-red-500 text-[10px]">{errors.confirmPassword}</p>
