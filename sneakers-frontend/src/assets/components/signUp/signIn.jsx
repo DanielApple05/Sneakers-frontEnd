@@ -62,8 +62,9 @@ const signIn = () => {
             password,
             username: fullName
           });
+           localStorage.setItem('token', res.data.token);
             alert(res.data.message);
-          navigate('/login')
+          navigate('/index')
         }
       } catch (error) {
         alert(error.response?.data?.message || 'Something went wrong');
