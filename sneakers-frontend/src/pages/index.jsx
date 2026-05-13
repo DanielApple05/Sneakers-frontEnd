@@ -56,25 +56,43 @@ const Index = () => {
         <h3 className='font-bold'>
           Best Sellers
         </h3>
-        {loading ? (
-          <p>Loading sneakers...</p>
-        ) : (<div className='xl:flex grid grid-cols-2 w-full xl:gap-10 gap-2 mt-4'>
-          {sneakers.slice(2, 6).map((shoe) => (
-            <div key={shoe._id} className=" bg-gray-400 grid rounded-xl  ">
-              <Link to={`/product/${shoe.id}`}>
-                <img src={shoe.image} alt={shoe.name} className="rounded-t-xl h-full " />
-              </Link>
-              <div className="grid justify-center text-center pt-2">
-                <h6 className='font-semibold'>{shoe.name}</h6>
-                <p className='text-[18px]'>${shoe.price}</p>
+        <div className='xl:flex grid grid-cols-2 w-full xl:gap-10 gap-2 mt-4'>
+          {loading
+            ? Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
+                {/* Image placeholder */}
+                <div className="rounded-t-xl h-48 bg-gray-300" />
+
+                {/* Text placeholders */}
+                <div className="grid justify-center text-center pt-2 gap-2 px-4">
+                  <div className="h-4 w-32 bg-gray-300 rounded mx-auto" />
+                  <div className="h-4 w-16 bg-gray-300 rounded mx-auto" />
+                </div>
+
+                {/* Button placeholder */}
+                <div className="bg-gray-300 p-3 m-4 rounded-xl h-10" />
               </div>
-              <button className="bg-blue-400 text-white font-bold p-3 m-4 rounded-xl hover:bg-blue-600 cursor-pointer text-sm" onClick={() => addToCart({ ...shoe, quantity: 1 })}>
-                {loading ? 'Adding...' : 'Add to Cart'}
-              </button>
-            </div>
-          ))}
+            ))
+            : sneakers.slice(2, 6).map((shoe) => (
+              <div key={shoe._id} className="bg-gray-400 grid rounded-xl">
+                <Link to={`/product/${shoe.id}`}>
+                  <img src={shoe.image} alt={shoe.name} className="rounded-t-xl h-full" />
+                </Link>
+                <div className="grid justify-center text-center pt-2">
+                  <h6 className='font-semibold'>{shoe.name}</h6>
+                  <p className='text-[18px]'>${shoe.price}</p>
+                </div>
+                <button
+                  className="bg-blue-400 text-white font-bold p-3 m-4 rounded-xl hover:bg-blue-600 cursor-pointer text-sm"
+                  onClick={() => addToCart({ ...shoe, quantity: 1 })}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            ))
+          }
         </div>
-        )}
+
         <div className='xl:flex grid w-full justify-between  my-10 gap-10'>
           <div className='w-full relative '>
             <img src={jordans_2} alt="" className="w-full object-cover" />
