@@ -54,10 +54,10 @@ const ShopGallery = () => {
             Shop
           </h3>
 
-          <div className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg absolute right-0 flex flex-col'>
+          <div className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col '>
             <div
-              onMouseOver={() => setIsClosed(!isClosed)}
-              className='font-semibold xl:p-3 p-1 flex items-center  cursor-pointer justify-between'>
+              onMouseEnter={() => setIsClosed(!isClosed)}
+              className='font-semibold xl:p-3 p-1 flex text-sm items-center  cursor-pointer justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
                 icon={isClosed ? faAngleDown : faAngleRight}
@@ -123,7 +123,7 @@ const ShopGallery = () => {
                   <FontAwesomeIcon
                     onClick={clearFilters}
                     icon={faArrowRotateLeft}
-                    className="xl:text-xl text-xs hover:text-red-800"
+                    className=" hover:text-red-800"
                   />
                 </div>
               </div>
