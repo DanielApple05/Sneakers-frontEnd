@@ -44,12 +44,12 @@ const SingleProductPage = () => {
       <div className="p-4 grid gap-5">
         {
           loading ?
-            <div className="xl:max-w-2xl max-w-full mx-auto bg-[#f5d19f] p-6 shadow-lg xl:my-10 my-0 rounded text-gray-700 xl:flex grid gap-5 animate-pulse">
+            <div className="xl:max-w-4xl max-w-full mx-auto bg-gray-400 p-6 shadow-lg xl:my-10 my-0 rounded xl:flex grid gap-5 animate-pulse">
               <div className="w-full" />
-              <div className="xl:max-w-2xl max-w-full mx-auto bg-[#f5d19f] p-6 shadow-lg xl:my-10 my-0 rounded text-gray-700 xl:flex grid gap-5" />
-                  <div className="flex justify-between"> 
-                    <div className='w-16 h-16 object-cover rounded-lg cursor-pointer hover:border-2 '/>
-                  </div>
+              <div className="xl:max-w-2xl max-w-full mx-auto bg-gray-400 p-6 shadow-lg xl:my-10 my-0 rounded xl:flex grid gap-5" />
+              <div className="flex justify-between">
+                <div className='w-16 h-16 object-cover rounded-lg cursor-pointer hover:border-2 ' />
+              </div>
             </div>
             :
             <div className="xl:max-w-2xl max-w-full mx-auto bg-[#f5d19f] p-6 shadow-lg xl:my-10 my-0 rounded text-gray-700 xl:flex grid gap-5">

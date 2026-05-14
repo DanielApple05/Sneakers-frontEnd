@@ -57,7 +57,7 @@ const Index = () => {
         <div className='xl:flex grid grid-cols-2 w-full xl:gap-10 gap-2 mt-4'>
           {loading
             ? Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
+              <div key={i} className="bg-gray-400 grid rounded-xl w-full animate-pulse">
                 {/* Image placeholder */}
                 <div className="rounded-t-xl h-48 bg-gray-300" />
 
