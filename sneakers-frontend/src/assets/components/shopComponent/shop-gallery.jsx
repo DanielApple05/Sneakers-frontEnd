@@ -55,9 +55,9 @@ const ShopGallery = () => {
           </h3>
 
           <div
-            onMouseEnter={() => setIsClosed(!isClosed)}
             className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col '>
             <div
+              onMouseOver={() => setIsClosed(!isClosed)}
               className='font-semibold xl:p-3 p-2 flex text-sm items-center  cursor-pointer justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
@@ -67,9 +67,8 @@ const ShopGallery = () => {
             </div>
             {isClosed && (
               <div
-                onMouseEnter={() => setIsClosed(true)}
                 onMouseLeave={() => setIsClosed(false)}
-                className="p-2">
+                className="p-2 ">
                 <div
                   onClick={() => setShoeBrandIsOpen(!shoeBrandIsOpen)}
                   className="flex items-center justify-between mb-2" >
@@ -98,7 +97,7 @@ const ShopGallery = () => {
 
                 <div
                   onClick={() => setGenderIsOpen(!genderIsOpen)}
-                  className="flex items-center justify-between mb-2  cursor-pointer">
+                  className="flex items-center justify-between my-3  cursor-pointer">
                   <h6>Gender</h6>
                   <FontAwesomeIcon
                     icon={shoeBrandIsOpen ? faAngleRight : faAngleDown}
