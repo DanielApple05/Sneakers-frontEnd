@@ -53,7 +53,7 @@ const ShopGallery = () => {
         </h3>
         <div className="flex xl:pr-10 pr-5 justify-between">
           {/* Filters sidebar */}
-          <div className='bg-white xl:ml-10 ml-5 xl:min-w-[15%] min-w-[30%] xl:h-65 h-50 xl:flex hidden'>
+          <div className='bg-white xl:ml-10 ml-5 xl:min-w-[15%] min-w-[30%] xl:h-65 h-50 xl:flex hidden flex-col'>
             <div className='font-semibold border-b xl:p-3 p-1 flex items-center justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
