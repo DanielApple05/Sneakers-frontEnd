@@ -54,10 +54,11 @@ const ShopGallery = () => {
             Shop
           </h3>
 
-          <div className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col '>
+          <div
+            onMouseEnter={() => setIsClosed(!isClosed)}
+            className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col '>
             <div
-              onMouseEnter={() => setIsClosed(!isClosed)}
-              className='font-semibold xl:p-3 p-1 flex text-sm items-center  cursor-pointer justify-between'>
+              className='font-semibold xl:p-3 p-2 flex text-sm items-center  cursor-pointer justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
                 icon={isClosed ? faAngleDown : faAngleRight}
@@ -69,9 +70,9 @@ const ShopGallery = () => {
                 onMouseEnter={() => setIsClosed(true)}
                 onMouseLeave={() => setIsClosed(false)}
                 className="p-2">
-                <div 
-                onClick={() => setShoeBrandIsOpen(!shoeBrandIsOpen)}
-                className="flex items-center justify-between mb-2" >
+                <div
+                  onClick={() => setShoeBrandIsOpen(!shoeBrandIsOpen)}
+                  className="flex items-center justify-between mb-2" >
                   <h6>Brands</h6>
                   <FontAwesomeIcon
                     icon={shoeBrandIsOpen ? faAngleRight : faAngleDown}
@@ -95,9 +96,9 @@ const ShopGallery = () => {
                 ))}
 
 
-                <div 
-                onClick={() => setGenderIsOpen(!genderIsOpen)}
-                className="flex items-center justify-between mb-2  cursor-pointer">
+                <div
+                  onClick={() => setGenderIsOpen(!genderIsOpen)}
+                  className="flex items-center justify-between mb-2  cursor-pointer">
                   <h6>Gender</h6>
                   <FontAwesomeIcon
                     icon={shoeBrandIsOpen ? faAngleRight : faAngleDown}
