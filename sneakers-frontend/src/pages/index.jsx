@@ -1,8 +1,6 @@
 import Header from '../assets/components/headerComponent/header';
 import bgHero from '/images/background-hero.png';
 import '../App.css';
-import jordans_2 from '/images/male-imgfolder/male-jordans2.png';
-import Jordans_f from '/images/female-imgfolder/female-airforce.png';
 import Footer from '../assets/components/footerComponent/footer'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -91,39 +89,6 @@ const Index = () => {
               </div>
             ))
           }
-        </div>
-
-        <div className='xl:flex grid w-full justify-between  my-10 gap-10'>
-          <div className='w-full relative '>
-            <img src={jordans_2} alt="" className="w-full object-cover" />
-
-            <div className="absolute top-5 left-10 font-semibold space-y-1">
-              <p >
-                Men's Collection
-              </p>
-              <p>
-                UP TO 40% OFF
-              </p>
-              <button className='Shop-Men bg-red-600 px-8 rounded py-1  '>
-                Shop Men
-              </button>
-            </div>
-          </div>
-          <div className='w-full rounded-lg relative '>
-            <img src={Jordans_f} alt="" className="w-full rounded-2xl object-cover" />
-            <div className="absolute top-5 left-10 font-semibold space-y-1 ">
-              <p >
-                Women's Collection
-              </p>
-              <p>
-                NEW ARRIVALS
-              </p>
-
-              <button className='Shop-Men bg-red-600 px-4 rounded py-1 '>
-                Shop Women
-              </button>
-            </div>
-          </div>
         </div>
       </div>
       <Footer />
