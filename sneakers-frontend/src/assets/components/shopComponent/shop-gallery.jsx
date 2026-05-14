@@ -116,7 +116,7 @@ const ShopGallery = () => {
             </div>
             <div className='grid xl:grid-cols-4 grid-cols-2 xl:gap-6 gap-2'>
               {loading
-                ? Array.from({ length: 8 }).map((_, i) => (
+                ? Array.from({ length: 12 }).map((_, i) => (
                     <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
                       <div className="rounded-t-xl h-48 bg-gray-300" />
                       <div className="grid justify-center text-center pt-2 gap-2 px-4">
