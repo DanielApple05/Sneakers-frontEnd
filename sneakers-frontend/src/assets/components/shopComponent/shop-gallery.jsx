@@ -11,10 +11,11 @@ const ShopGallery = () => {
   const { addToCart } = useCart();
   const [sneaker, setSneaker] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
+  const [shoeBrandIsOpen, setShoeBrandIsOpen] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [genderIsOpen, setGenderIsOpen] = useState(false)
 
   useEffect(() => {
     const fetchSneakers = async () => {
@@ -47,31 +48,37 @@ const ShopGallery = () => {
 
   return (
     <div>
-      <div className='xl:py-10 py-5 w-full bg-[#FDF6EC] min-h-screen xl:text-sm text-xs'>
-        <h3 className="mb-6 xl:pl-20 pl-5 font-bold relative">
-          Shop
-        </h3>
-        <div className="flex xl:pr-10 pr-5 justify-between">
-          {/* Filters sidebar */}
-          <div className='bg-white xl:ml-10 ml-5 xl:min-w-[15%] min-w-[30%] xl:h-65 h-50 xl:flex hidden flex-col'>
-            <div className='font-semibold border-b xl:p-3 p-1 flex items-center justify-between'>
+      <div className='xl:py-10 py-5 xl:px-15 px-5 w-full bg-[#FDF6EC] min-h-screen xl:text-sm text-xs'>
+        <div className="flex relative justify-between">
+          <h3 className="mb-6 font-bold ">
+            Shop
+          </h3>
+
+          <div className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg absolute right-0 flex flex-col'>
+            <div
+              onMouseOver={() => setIsClosed(!isClosed)}
+              className='font-semibold xl:p-3 p-1 flex items-center  cursor-pointer justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
                 icon={isClosed ? faAngleDown : faAngleRight}
-                onClick={() => setIsClosed(!isClosed)}
+
               />
             </div>
             {isClosed && (
-              <div className="p-2">
-                <div className="flex items-center justify-between mb-2">
+              <div
+                onMouseEnter={() => setIsClosed(true)}
+                onMouseLeave={() => setIsClosed(false)}
+                className="p-2">
+                <div 
+                onClick={() => setShoeBrandIsOpen(!shoeBrandIsOpen)}
+                className="flex items-center justify-between mb-2" >
                   <h6>Brands</h6>
                   <FontAwesomeIcon
-                    icon={isOpen ? faAngleRight : faAngleDown}
-                    onClick={() => setIsOpen(!isOpen)}
+                    icon={shoeBrandIsOpen ? faAngleRight : faAngleDown}
                   />
                 </div>
-                {!isOpen && shoeBrands.map((brand) => (
-                  <div key={brand} className="flex xl:gap-2 gap-1 items-center">
+                {!shoeBrandIsOpen && shoeBrands.map((brand) => (
+                  <div key={brand} className="flex  gap-1 items-center">
                     <input
                       type="checkbox"
                       checked={selectedBrands.includes(brand)}
@@ -83,67 +90,80 @@ const ShopGallery = () => {
                         }
                       }}
                     />
-                    <span className="text-start p-2 xl:text-sm text-xs capitalize">{brand}</span>
+                    <span className="text-start p-1 xl:text-sm text-xs capitalize">{brand}</span>
                   </div>
                 ))}
+
+
+                <div 
+                onClick={() => setGenderIsOpen(!genderIsOpen)}
+                className="flex items-center justify-between mb-2  cursor-pointer">
+                  <h6>Gender</h6>
+                  <FontAwesomeIcon
+                    icon={shoeBrandIsOpen ? faAngleRight : faAngleDown}
+                  />
+                </div>
+                {genderIsOpen && (
+                  <div className='flex w-full gap-2 mb-6'>
+                    {folders.map((folder) => (
+                      <button
+                        key={folder}
+                        onClick={() => setActiveFilter(folder)}
+                        className={`xl:py-2 py-1  px-2 text-xs rounded-xl cursor-pointer hover:bg-red-800 ${activeFilter === folder
+                          ? "bg-red-700 text-white"
+                          : "bg-gray-400 text-white hover:bg-red-800"
+                          }`}
+                      >
+                        {folder}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                <div>
+                  <FontAwesomeIcon
+                    onClick={clearFilters}
+                    icon={faArrowRotateLeft}
+                    className="xl:text-xl text-xs hover:text-red-800"
+                  />
+                </div>
               </div>
             )}
           </div>
-          <div className="grid xl:w-[80%] w-full xl:pl-10 p-5">
-            <div className="flex justify-between">
-              <div className='space-x-4 text-white pb-4'>
-                {folders.map((folder) => (
-                  <button
-                    key={folder}
-                    onClick={() => setActiveFilter(folder)}
-                    className={`xl:py-2 py-1 xl:px-6 px-2 rounded-xl cursor-pointer hover:bg-red-800 ${
-                      activeFilter === folder
-                        ? "bg-red-700 text-white"
-                        : "bg-gray-400 text-white hover:bg-red-800"
-                    }`}
-                  >
-                    {folder}
-                  </button>
-                ))}
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  onClick={clearFilters}
-                  icon={faArrowRotateLeft}
-                  className="xl:text-xl text-xs hover:text-red-800"
-                />
-              </div>
-            </div>
-            <div className='grid xl:grid-cols-4 grid-cols-2 xl:gap-6 gap-2'>
+
+        </div>
+        <div className="flex justify-between">
+          {/* Filters sidebar */}
+          <div className="grid w-full ">
+            <div className='grid xl:grid-cols-5 grid-cols-2 xl:gap-6 gap-2'>
               {loading
                 ? Array.from({ length: 12 }).map((_, i) => (
-                    <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
-                      <div className="rounded-t-xl h-48 bg-gray-300" />
-                      <div className="grid justify-center text-center pt-2 gap-2 px-4">
-                        <div className="h-4 w-32 bg-gray-300 rounded mx-auto" />
-                        <div className="h-4 w-16 bg-gray-300 rounded mx-auto" />
-                      </div>
-                      <div className="bg-gray-300 p-3 m-4 rounded-xl h-10" />
+                  <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
+                    <div className="rounded-t-xl h-48 bg-gray-300" />
+                    <div className="grid justify-center text-center pt-2 gap-2 px-4">
+                      <div className="h-4 w-32 bg-gray-300 rounded mx-auto" />
+                      <div className="h-4 w-16 bg-gray-300 rounded mx-auto" />
                     </div>
-                  ))
+                    <div className="bg-gray-300 p-3 m-4 rounded-xl h-10" />
+                  </div>
+                ))
                 : filteredShoes.map((shoe) => (
-                    <div key={shoe.id} className="flex flex-col bg-gray-400 min-h-30 rounded-xl shadow-xl">
-                      <Link to={`/product/${shoe.id}`}>
-                        <img src={shoe.image} alt={shoe.name} className="rounded-t-xl w-full h-50" />
-                      </Link>
-                      <div className="text-center pt-2">
-                        <h6 className="font-semibold">{shoe.name}</h6>
-                        <p>${shoe.price}</p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => addToCart({ ...shoe, quantity: 1 })}
-                        className="bg-blue-400 text-white m-4 font-bold p-3 rounded-xl cursor-pointer hover:bg-blue-500"
-                      >
-                        Add to Cart
-                      </button>
+                  <div key={shoe.id} className="flex flex-col bg-gray-400 min-h-30 rounded-xl shadow-xl">
+                    <Link to={`/product/${shoe.id}`}>
+                      <img src={shoe.image} alt={shoe.name} className="rounded-t-xl w-full h-50" />
+                    </Link>
+                    <div className="text-center pt-2">
+                      <h6 className="font-semibold">{shoe.name}</h6>
+                      <p>${shoe.price}</p>
                     </div>
-                  ))
+                    <button
+                      type="button"
+                      onClick={() => addToCart({ ...shoe, quantity: 1 })}
+                      className="bg-blue-400 text-white m-4 font-bold p-3 rounded-xl cursor-pointer hover:bg-blue-500"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                ))
               }
             </div>
           </div>
