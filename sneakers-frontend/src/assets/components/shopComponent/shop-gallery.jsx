@@ -12,7 +12,7 @@ const ShopGallery = () => {
   const [sneaker, setSneaker] = useState([]);
   const [loading, setLoading] = useState(true);
   const [shoeBrandIsOpen, setShoeBrandIsOpen] = useState(false);
-  const [isClosed, setIsClosed] = useState(false);
+  const [filterIsClosed, setFilterIsClosed] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
   const [genderIsOpen, setGenderIsOpen] = useState(false)
@@ -57,17 +57,17 @@ const ShopGallery = () => {
           <div
             className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col shadow-xl shadow-gray-500 '>
             <div
-              onMouseOver={() => setIsClosed(!isClosed)}
+              onMouseOver={() => setFilterIsClosed(!filterIsClosed)}
               className='font-semibold xl:p-3 p-2 flex text-sm items-center cursor-pointer justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
-                icon={isClosed ? faAngleDown : faAngleRight}
+                icon={filterIsClosed ? faAngleDown : faAngleRight}
 
               />
             </div>
-            {isClosed && (
+            {filterIsClosed && (
               <div
-                onMouseLeave={() => setIsClosed(false)}
+                onMouseLeave={() => setFilterIsClosed(false)}
                 className="p-2 ">
                 <div
                   onClick={() => setShoeBrandIsOpen(!shoeBrandIsOpen)}
