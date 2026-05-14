@@ -55,10 +55,10 @@ const ShopGallery = () => {
           </h3>
 
           <div
-            className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col '>
+            className='bg-white/90 xl:w-2/12 w-5/12 rounded-lg fixed right-0 flex flex-col shadow-xl shadow-gray-500 '>
             <div
               onMouseOver={() => setIsClosed(!isClosed)}
-              className='font-semibold xl:p-3 p-2 flex text-sm items-center  cursor-pointer justify-between'>
+              className='font-semibold xl:p-3 p-2 flex text-sm items-center cursor-pointer justify-between'>
               <h6>Filters</h6>
               <FontAwesomeIcon
                 icon={isClosed ? faAngleDown : faAngleRight}
@@ -119,56 +119,51 @@ const ShopGallery = () => {
                     ))}
                   </div>
                 )}
-                <div>
+                <div className="flex">
                   <FontAwesomeIcon
                     onClick={clearFilters}
                     icon={faArrowRotateLeft}
-                    className=" hover:text-red-800"
+                    className=" hover:text-red-800  text-center "
                   />
                 </div>
               </div>
             )}
           </div>
-
         </div>
-        <div className="flex justify-between">
-          {/* Filters sidebar */}
-          <div className="grid w-full ">
-            <div className='grid xl:grid-cols-5 grid-cols-2 xl:gap-6 gap-2'>
-              {loading
-                ? Array.from({ length: 12 }).map((_, i) => (
-                  <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
-                    <div className="rounded-t-xl h-48 bg-gray-300" />
-                    <div className="grid justify-center text-center pt-2 gap-2 px-4">
-                      <div className="h-4 w-32 bg-gray-300 rounded mx-auto" />
-                      <div className="h-4 w-16 bg-gray-300 rounded mx-auto" />
-                    </div>
-                    <div className="bg-gray-300 p-3 m-4 rounded-xl h-10" />
+
+        {/* Filters sidebar */}
+          <div className='grid xl:grid-cols-5 grid-cols-2 xl:gap-6 gap-2 w-full'>
+            {loading
+              ? Array.from({ length: 12 }).map((_, i) => (
+                <div key={i} className="bg-gray-400 grid rounded-xl animate-pulse">
+                  <div className="rounded-t-xl h-48 bg-gray-300" />
+                  <div className="grid justify-center text-center pt-2 gap-2 px-4">
+                    <div className="h-4 w-32 bg-gray-300 rounded mx-auto" />
+                    <div className="h-4 w-16 bg-gray-300 rounded mx-auto" />
                   </div>
-                ))
-                : filteredShoes.map((shoe) => (
-                  <div key={shoe.id} className="flex flex-col bg-gray-400 min-h-30 rounded-xl shadow-xl">
-                    <Link to={`/product/${shoe.id}`}>
-                      <img src={shoe.image} alt={shoe.name} className="rounded-t-xl w-full h-50" />
-                    </Link>
-                    <div className="text-center pt-2">
-                      <h6 className="font-semibold">{shoe.name}</h6>
-                      <p>${shoe.price}</p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => addToCart({ ...shoe, quantity: 1 })}
-                      className="bg-blue-400 text-white m-4 font-bold p-3 rounded-xl cursor-pointer hover:bg-blue-500"
-                    >
-                      Add to Cart
-                    </button>
+                  <div className="bg-gray-300 p-3 m-4 rounded-xl h-10" />
+                </div>
+              ))
+              : filteredShoes.map((shoe) => (
+                <div key={shoe.id} className="flex flex-col bg-gray-400 min-h-30 rounded-xl shadow-xl">
+                  <Link to={`/product/${shoe.id}`}>
+                    <img src={shoe.image} alt={shoe.name} className="rounded-t-xl w-full h-50" />
+                  </Link>
+                  <div className="text-center pt-2">
+                    <h6 className="font-semibold">{shoe.name}</h6>
+                    <p>${shoe.price}</p>
                   </div>
-                ))
-              }
-            </div>
+                  <button
+                    type="button"
+                    onClick={() => addToCart({ ...shoe, quantity: 1 })}
+                    className="bg-blue-400 text-white m-4 font-bold p-3 rounded-xl cursor-pointer hover:bg-blue-500"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              ))
+            }
           </div>
-
-        </div>
       </div>
     </div>
   );
