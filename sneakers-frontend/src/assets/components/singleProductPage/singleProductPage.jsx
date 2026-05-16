@@ -111,17 +111,32 @@ const SingleProductPage = () => {
         <div className="text-center space-y-7 border-gray-500 py-7 border-y-2 mb-4">
           <h3 className="font-bold">Related Products</h3>
           <div className="xl:flex grid grid-cols-2 gap-7 items-center justify-center">
-            {relatedProducts.map((sneaks) => (
-              <div key={sneaks.id} className="bg-amber-100 space-y-4 pb-2 rounded-xl">
-                <Link to={`/product/${sneaks.id}`}>
-                  <img src={sneaks.image} alt={sneaks.name} className="h-50 rounded-t-xl cursor-pointer w-full" />
-                </Link>
-                <div className="font-semibold m-3">
-                  <p>{sneaks.name}</p>
-                  <h4>{sneaks.currency}{sneaks.price}</h4>
+            {loading ? Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="bg-gray-400 w-full rounded-xl grid animate-pulse">
+                {/* Image placeholder */}
+                <div className="rounded-t-xl h-48 bg-gray-300" />
+
+                {/* Text placeholders */}
+                <div className="grid justify-center text-center pt-2 gap-2 px-4">
+                  <div className="h-4 w-32 bg-gray-300 rounded mx-auto" />
+                  <div className="h-4 w-16 bg-gray-300 rounded mx-auto" />
                 </div>
+
+                {/* Button placeholder */}
+                <div className="bg-gray-300 p-3 m-4 rounded-xl h-10" />
               </div>
-            ))}
+            )) :
+              relatedProducts.map((sneaks) => (
+                <div key={sneaks.id} className="bg-amber-100 space-y-4 pb-2 rounded-xl w-full">
+                  <Link to={`/product/${sneaks.id}`}>
+                    <img src={sneaks.image} alt={sneaks.name} className="h-50 rounded-t-xl cursor-pointer w-full" />
+                  </Link>
+                  <div className="font-semibold m-3">
+                    <p>{sneaks.name}</p>
+                    <h4>{sneaks.currency}{sneaks.price}</h4>
+                  </div>
+                </div>
+              ))}
           </div>
           <Link to="/shop">
             <button className="border-2 border-amber-200 p-2 bg-amber-100 cursor-pointer hover:bg-[#f5d19f] hover:border-black hover:font-medium">
