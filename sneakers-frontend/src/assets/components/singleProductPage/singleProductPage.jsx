@@ -46,7 +46,7 @@ const SingleProductPage = () => {
           {loading ? (
             <>
               <div className="w-full animate-pulse grid">
-                <div className="w-full h-70 bg-gray-400 rounded-xl mb-4" />
+                <div className="w-full h-74 bg-gray-400 rounded-xl mb-4" />
                 <div className="flex  justify-between space-x-5">
                   {Array.from({ length: 4 }).map((_, i) => (
                     <div key={i} className="w-16 h-16 bg-gray-400 rounded-lg" />))}
@@ -54,8 +54,8 @@ const SingleProductPage = () => {
 
               </div>
               <div className=" w-full grid gap-y-2 animate-pulse">
-                <div className="h-4 w-30 bg-gray-400 rounded-lg" />
-                <div className="h-4 w-24 bg-gray-400 rounded-lg" />
+                <div className="h-6 w-30 bg-gray-400 rounded-lg" />
+                <div className="h-6 w-24 bg-gray-400 rounded-lg" />
                 <div className="h-15 w-70 rounded-lg bg-gray-400 " />
                 <div className="h-6 w-15 bg-gray-400 rounded-lg " />
                 <div className="flex justify-between">
